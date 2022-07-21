@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		F9417DE328893BCB0042D79D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9417DE228893BCB0042D79D /* AppDelegate.swift */; };
 		F9417DE528893BCB0042D79D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9417DE428893BCB0042D79D /* SceneDelegate.swift */; };
-		F9417DE728893BCB0042D79D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9417DE628893BCB0042D79D /* ViewController.swift */; };
+		F9417DE728893BCB0042D79D /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9417DE628893BCB0042D79D /* SignInController.swift */; };
 		F9417DEA28893BCB0042D79D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9417DE828893BCB0042D79D /* Main.storyboard */; };
 		F9417DED28893BCB0042D79D /* Homework_4___toDoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9417DEB28893BCB0042D79D /* Homework_4___toDoList.xcdatamodeld */; };
 		F9417DEF28893BCC0042D79D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9417DEE28893BCC0042D79D /* Assets.xcassets */; };
 		F9417DF228893BCC0042D79D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9417DF028893BCC0042D79D /* LaunchScreen.storyboard */; };
+		F9417E0128899A0A0042D79D /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9417E0028899A0A0042D79D /* SignUpController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F9417DDF28893BCB0042D79D /* Homework 4 - toDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Homework 4 - toDoList.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9417DE228893BCB0042D79D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9417DE428893BCB0042D79D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F9417DE628893BCB0042D79D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F9417DE628893BCB0042D79D /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		F9417DE928893BCB0042D79D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9417DEC28893BCB0042D79D /* Homework_4___toDoList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Homework_4___toDoList.xcdatamodel"; sourceTree = "<group>"; };
 		F9417DEE28893BCC0042D79D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9417DF128893BCC0042D79D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9417DF328893BCC0042D79D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9417E0028899A0A0042D79D /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,33 @@
 		F9417DE128893BCB0042D79D /* Homework 4 - toDoList */ = {
 			isa = PBXGroup;
 			children = (
-				F9417DE228893BCB0042D79D /* AppDelegate.swift */,
-				F9417DE428893BCB0042D79D /* SceneDelegate.swift */,
-				F9417DE628893BCB0042D79D /* ViewController.swift */,
-				F9417DE828893BCB0042D79D /* Main.storyboard */,
+				F9417DFB2889958D0042D79D /* UIViewControllers */,
+				F9417DF92889956D0042D79D /* Source */,
 				F9417DEE28893BCC0042D79D /* Assets.xcassets */,
-				F9417DF028893BCC0042D79D /* LaunchScreen.storyboard */,
 				F9417DF328893BCC0042D79D /* Info.plist */,
 				F9417DEB28893BCB0042D79D /* Homework_4___toDoList.xcdatamodeld */,
 			);
 			path = "Homework 4 - toDoList";
+			sourceTree = "<group>";
+		};
+		F9417DF92889956D0042D79D /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				F9417DE228893BCB0042D79D /* AppDelegate.swift */,
+				F9417DE428893BCB0042D79D /* SceneDelegate.swift */,
+				F9417DE828893BCB0042D79D /* Main.storyboard */,
+				F9417DF028893BCC0042D79D /* LaunchScreen.storyboard */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		F9417DFB2889958D0042D79D /* UIViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F9417DE628893BCB0042D79D /* SignInController.swift */,
+				F9417E0028899A0A0042D79D /* SignUpController.swift */,
+			);
+			path = UIViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,9 +161,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9417DED28893BCB0042D79D /* Homework_4___toDoList.xcdatamodeld in Sources */,
-				F9417DE728893BCB0042D79D /* ViewController.swift in Sources */,
+				F9417DE728893BCB0042D79D /* SignInController.swift in Sources */,
 				F9417DE328893BCB0042D79D /* AppDelegate.swift in Sources */,
 				F9417DE528893BCB0042D79D /* SceneDelegate.swift in Sources */,
+				F9417E0128899A0A0042D79D /* SignUpController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

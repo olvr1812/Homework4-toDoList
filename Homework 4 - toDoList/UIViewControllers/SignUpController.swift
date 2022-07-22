@@ -104,6 +104,14 @@ class SignUpController: UIViewController {
         setSignUpBtn()
 
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let _ = touches.first as? UITouch {
+            view.endEditing(true)
+        }
+        super.touchesBegan(touches, with: event)
+            
+    }
 
     private func setNameLabel() {
         nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 314).isActive = true

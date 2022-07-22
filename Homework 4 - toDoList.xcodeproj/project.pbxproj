@@ -15,6 +15,7 @@
 		F9417DEF28893BCC0042D79D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9417DEE28893BCC0042D79D /* Assets.xcassets */; };
 		F9417DF228893BCC0042D79D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9417DF028893BCC0042D79D /* LaunchScreen.storyboard */; };
 		F9417E0128899A0A0042D79D /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9417E0028899A0A0042D79D /* SignUpController.swift */; };
+		F9417E052889E4EC0042D79D /* SignProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9417E042889E4EC0042D79D /* SignProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		F9417DF128893BCC0042D79D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9417DF328893BCC0042D79D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9417E0028899A0A0042D79D /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		F9417E042889E4EC0042D79D /* SignProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		F9417DE128893BCB0042D79D /* Homework 4 - toDoList */ = {
 			isa = PBXGroup;
 			children = (
+				F9417E032889E4D30042D79D /* Protocols */,
 				F9417DFB2889958D0042D79D /* UIViewControllers */,
 				F9417DF92889956D0042D79D /* Source */,
 				F9417DEE28893BCC0042D79D /* Assets.xcassets */,
@@ -87,6 +90,14 @@
 				F9417E0028899A0A0042D79D /* SignUpController.swift */,
 			);
 			path = UIViewControllers;
+			sourceTree = "<group>";
+		};
+		F9417E032889E4D30042D79D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F9417E042889E4EC0042D79D /* SignProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +175,7 @@
 				F9417DE728893BCB0042D79D /* SignInController.swift in Sources */,
 				F9417DE328893BCB0042D79D /* AppDelegate.swift in Sources */,
 				F9417DE528893BCB0042D79D /* SceneDelegate.swift in Sources */,
+				F9417E052889E4EC0042D79D /* SignProtocol.swift in Sources */,
 				F9417E0128899A0A0042D79D /* SignUpController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

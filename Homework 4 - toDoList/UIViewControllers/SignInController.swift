@@ -9,6 +9,8 @@ import UIKit
 
 class SignInController: UIViewController {
     
+    
+    
     private var signUpButt: UIButton = {
         let button = UIButton()
         button.setTitle("Sign Up", for: .normal)
@@ -18,8 +20,8 @@ class SignInController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         button.contentHorizontalAlignment = .center
         button.addTarget(self, action: #selector(btnSignUpAction), for: .touchUpInside)
-//        button.translatesAutoresizingMaskIntoConstraints = false
-        button.frame = CGRect(x: 338, y: 72, width: 56, height: 18)
+        button.translatesAutoresizingMaskIntoConstraints = false
+//        button.frame = CGRect(x: 338, y: 72, width: 56, height: 18)
         return button
     }()
     
@@ -36,8 +38,10 @@ class SignInController: UIViewController {
     
     private lazy var nameTextField: UITextField = {
         let textField = UITextField()
-        textField.borderStyle = .line
-        textField.clipsToBounds = true
+        textField.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        textField.font = UIFont(name: "Inter", size: 14)
+        textField.textColor = .black
+        textField.borderStyle = UITextField.BorderStyle.roundedRect
         textField.layer.borderWidth = 1
         textField.layer.cornerRadius = 5
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -58,8 +62,10 @@ class SignInController: UIViewController {
     
     private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.borderStyle = .line
-        textField.clipsToBounds = true
+        textField.font = UIFont(name: "Inter", size: 14)
+        textField.backgroundColor = .white
+        textField.textColor = .black
+        textField.borderStyle = UITextField.BorderStyle.roundedRect
         textField.layer.borderWidth = 1
         textField.layer.cornerRadius = 5
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -103,13 +109,21 @@ class SignInController: UIViewController {
         view.addSubview(passwordTextField)
         view.addSubview(forgetPasswordBtn)
         view.addSubview(signInBtn)
-//        setSignUp()
+        setSignUp()
         setNameLabel()
         setNameTextField()
         setPasswordTextField()
         setPasswordLabel()
         setForgetPasswordBtn()
         setSignInBtn()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let _ = touches.first as? UITouch {
+            view.endEditing(true)
+        }
+        super.touchesBegan(touches, with: event)
+            
     }
     
     private func setSignUp() {
@@ -158,7 +172,6 @@ class SignInController: UIViewController {
         signInBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 600).isActive = true
         signInBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 80).isActive = true
         signInBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -81).isActive = true
-        signInBtn.widthAnchor.constraint(equalToConstant: 229).isActive = true
         signInBtn.heightAnchor.constraint(equalToConstant: 55).isActive = true
     }
     

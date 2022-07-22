@@ -35,8 +35,10 @@ class SignUpController: UIViewController {
 
     private lazy var nameTextField: UITextField = {
         let textField = UITextField()
-        textField.borderStyle = .line
-        textField.clipsToBounds = true
+        textField.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        textField.font = UIFont(name: "Inter", size: 14)
+        textField.textColor = .black
+        textField.borderStyle = UITextField.BorderStyle.roundedRect
         textField.layer.borderWidth = 1
         textField.layer.cornerRadius = 5
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -57,8 +59,10 @@ class SignUpController: UIViewController {
 
     private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.borderStyle = .line
-        textField.clipsToBounds = true
+        textField.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        textField.font = UIFont(name: "Inter", size: 14)
+        textField.textColor = .black
+        textField.borderStyle = UITextField.BorderStyle.roundedRect
         textField.layer.borderWidth = 1
         textField.layer.cornerRadius = 5
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -140,7 +144,6 @@ class SignUpController: UIViewController {
         signIUpBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 600).isActive = true
         signIUpBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 80).isActive = true
         signIUpBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -81).isActive = true
-        signIUpBtn.widthAnchor.constraint(equalToConstant: 229).isActive = true
         signIUpBtn.heightAnchor.constraint(equalToConstant: 55).isActive = true
     }
     

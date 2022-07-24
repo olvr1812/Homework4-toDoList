@@ -10,14 +10,13 @@ import UIKit
 
 class SignUpController: UIViewController {
     
-    private var btnToSignIn: UIButton = {
+    private lazy var btnToSignIn: UIButton = {
         let btn = UIButton()
         btn.setTitle("<-", for: .normal)
         btn.setTitleColor(UIColor.black, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Inter", size: 20)
-        btn.addTarget(self, action: #selector(evenToSignIn), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
-        
+        btn.addTarget(self, action: #selector(evenToSignIn), for: .touchUpInside)
         
         return btn
     }()
@@ -106,7 +105,7 @@ class SignUpController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let _ = touches.first as? UITouch {
+        if let _ = touches.first {
             view.endEditing(true)
         }
         super.touchesBegan(touches, with: event)
@@ -149,7 +148,7 @@ class SignUpController: UIViewController {
     }
     
     private func setSignUpBtn() {
-        signIUpBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 600).isActive = true
+        signIUpBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -81).isActive = true
         signIUpBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 80).isActive = true
         signIUpBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -81).isActive = true
         signIUpBtn.heightAnchor.constraint(equalToConstant: 55).isActive = true
@@ -157,8 +156,8 @@ class SignUpController: UIViewController {
     
     @objc private func evenToSignIn(sender: UIButton) {
         dismiss(animated: true)
-        let rootVC = SignInController()
-        rootVC.modalPresentationStyle = .fullScreen
-        present(rootVC, animated: true, completion: nil)
+//        let rootVC = SignInController()
+//        rootVC.modalPresentationStyle = .fullScreen
+//        present(rootVC, animated: true, completion: nil)
     }
 }

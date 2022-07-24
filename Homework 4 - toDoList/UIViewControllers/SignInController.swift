@@ -11,13 +11,13 @@ class SignInController: UIViewController {
     
     
     
-    private var signUpButt: UIButton = {
+    private lazy var signUpButt: UIButton = {
         let button = UIButton()
         button.setTitle("Sign Up", for: .normal)
         button.backgroundColor = .init(red: 1, green: 1, blue: 1, alpha: 1)
         button.setTitleColor(UIColor.black, for: .normal)
         button.titleLabel?.font = UIFont(name: "Inter", size: 14)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.contentHorizontalAlignment = .center
         button.addTarget(self, action: #selector(btnSignUpAction), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -119,7 +119,7 @@ class SignInController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let _ = touches.first as? UITouch {
+        if let _ = touches.first {
             view.endEditing(true)
         }
         super.touchesBegan(touches, with: event)
@@ -150,7 +150,8 @@ class SignInController: UIViewController {
     private func setPasswordLabel() {
         passwordLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 407).isActive = true
         passwordLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 65).isActive = true
-        passwordLabel.widthAnchor.constraint(equalToConstant: 56).isActive = true
+        passwordLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -61).isActive = true
+//        passwordLabel.widthAnchor.constraint(equalToConstant: 56).isActive = true
         passwordLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
     }
     
@@ -169,7 +170,7 @@ class SignInController: UIViewController {
     }
     
     private func setSignInBtn() {
-        signInBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 600).isActive = true
+        signInBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -81).isActive = true
         signInBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 80).isActive = true
         signInBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -81).isActive = true
         signInBtn.heightAnchor.constraint(equalToConstant: 55).isActive = true

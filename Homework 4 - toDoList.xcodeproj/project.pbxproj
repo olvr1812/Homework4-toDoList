@@ -20,7 +20,8 @@
 		F941FE22288F02BC00CF45C7 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F941FE21288F02BC00CF45C7 /* SignUpVC.swift */; };
 		F97DE778288DBE2900937DD9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DE777288DBE2900937DD9 /* Model.swift */; };
 		F97DE77B288DBEA800937DD9 /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DE77A288DBEA800937DD9 /* LocalStore.swift */; };
-		F97DE77D288DBF2600937DD9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DE77C288DBF2600937DD9 /* SignInViewController.swift */; };
+		F97DE77D288DBF2600937DD9 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DE77C288DBF2600937DD9 /* SignInVC.swift */; };
+		F9FB0DDA288F4A2500245B49 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FB0DD9288F4A2500245B49 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +41,8 @@
 		F941FE21288F02BC00CF45C7 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		F97DE777288DBE2900937DD9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		F97DE77A288DBEA800937DD9 /* LocalStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
-		F97DE77C288DBF2600937DD9 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		F97DE77C288DBF2600937DD9 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		F9FB0DD9288F4A2500245B49 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		FC5E0AEB500FC63BA275E38A /* Pods_Homework_4___toDoList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Homework_4___toDoList.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -94,10 +96,10 @@
 		F9417DE128893BCB0042D79D /* Homework 4 - toDoList */ = {
 			isa = PBXGroup;
 			children = (
-				F941FE24288F12EA00CF45C7 /* Views */,
 				F97DE779288DBE9500937DD9 /* Models */,
-				F9417E032889E4D30042D79D /* Protocols */,
+				F941FE24288F12EA00CF45C7 /* Views */,
 				F9417DFB2889958D0042D79D /* ViewControllers */,
+				F9417E032889E4D30042D79D /* Protocols */,
 				F9417DF92889956D0042D79D /* Source */,
 				F9417DEE28893BCC0042D79D /* Assets.xcassets */,
 				F9417DF328893BCC0042D79D /* Info.plist */,
@@ -120,7 +122,7 @@
 		F9417DFB2889958D0042D79D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F97DE77C288DBF2600937DD9 /* SignInViewController.swift */,
+				F97DE77C288DBF2600937DD9 /* SignInVC.swift */,
 				F941FE21288F02BC00CF45C7 /* SignUpVC.swift */,
 			);
 			path = ViewControllers;
@@ -148,6 +150,7 @@
 			children = (
 				F97DE777288DBE2900937DD9 /* Model.swift */,
 				F97DE77A288DBEA800937DD9 /* LocalStore.swift */,
+				F9FB0DD9288F4A2500245B49 /* NetworkService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -267,7 +270,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F97DE77D288DBF2600937DD9 /* SignInViewController.swift in Sources */,
+				F9FB0DDA288F4A2500245B49 /* NetworkService.swift in Sources */,
+				F97DE77D288DBF2600937DD9 /* SignInVC.swift in Sources */,
 				F9417DED28893BCB0042D79D /* Homework_4___toDoList.xcdatamodeld in Sources */,
 				F9417DE728893BCB0042D79D /* SignInView.swift in Sources */,
 				F9417DE328893BCB0042D79D /* AppDelegate.swift in Sources */,

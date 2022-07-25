@@ -66,6 +66,7 @@ class SignInView: UIView {
     
     private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
+        textField.isSecureTextEntry = true
         textField.font = UIFont(name: "Inter", size: 14)
         textField.backgroundColor = .clear
         textField.textColor = .white
@@ -91,6 +92,7 @@ class SignInView: UIView {
         let btn = UIButton()
         btn.setTitle("Sign In", for: .normal)
         btn.setTitleColor(.white, for: .normal)
+        btn.setTitleColor(UIColor.gray, for: .disabled)
         btn.titleLabel?.font = UIFont(name: "Inter", size: 15)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         btn.backgroundColor = .init(red: 0.07, green: 0.19, blue: 0.27, alpha: 1)
@@ -98,6 +100,7 @@ class SignInView: UIView {
         btn.layer.cornerRadius = 10
         btn.layer.borderWidth = 0
         btn.contentHorizontalAlignment = .center
+        btn.isEnabled = false
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -160,7 +163,6 @@ class SignInView: UIView {
         self.passwordLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 407).isActive = true
         self.passwordLabel.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: 65).isActive = true
         self.passwordLabel.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: -269).isActive = true
-//        passwordLabel.widthAnchor.constraint(equalToConstant: 56).isActive = true
         self.passwordLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
     }
 
@@ -192,6 +194,28 @@ class SignInView: UIView {
 
     func evenToSignUp(_ target: Any?, action: Selector) {
         signUpButt.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    func nameEditingChange(_ target: Any?, action: Selector) {
+        nameTextField.addTarget(target, action: action, for: .editingChanged)
+    }
+    
+    func passwordEditingChanged(_ target: Any?, action: Selector) {
+        passwordTextField.addTarget(target, action: action, for: .editingChanged)
+    }
+    
+    func evenSignInBtn(_ target: Any?, action: Selector) {
+        signInBtn.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    func enabledSignInBtn(login: String, password: String) {
+        if password != "" && login != "" {
+            signInBtn.isEnabled = true
+            print("Enabled = true")
+        } else {
+            signInBtn.isEnabled = false
+            print("Enabled = false")
+        }
     }
     
     func setViews() {

@@ -64,6 +64,7 @@ class SignUpView: UIView {
         textField.font = UIFont(name: "Inter", size: 14)
         textField.backgroundColor = .clear
         textField.textColor = .white
+        textField.isSecureTextEntry = true
         textField.borderStyle = UITextField.BorderStyle.roundedRect
         textField.layer.borderWidth = 1
         textField.layer.cornerRadius = 5
@@ -76,6 +77,7 @@ class SignUpView: UIView {
         let btn = UIButton()
         btn.setTitle("Sign In", for: .normal)
         btn.setTitleColor(.white, for: .normal)
+        btn.setTitleColor(UIColor.gray, for: .disabled)
         btn.titleLabel?.font = UIFont(name: "Inter", size: 15)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         btn.backgroundColor = .init(red: 0.07, green: 0.19, blue: 0.27, alpha: 1)
@@ -83,6 +85,7 @@ class SignUpView: UIView {
         btn.layer.cornerRadius = 10
         btn.layer.borderWidth = 0
         btn.contentHorizontalAlignment = .center
+        btn.isEnabled = false
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -170,7 +173,23 @@ class SignUpView: UIView {
         btnToSignIn.addTarget(target, action: action, for: .touchUpInside)
     }
     
-
+    func nameEditingChange(_ target: Any?, action: Selector) {
+        nameTextField.addTarget(target, action: action, for: .editingChanged)
+    }
+    
+    func passwordEditingChanged(_ target: Any?, action: Selector) {
+        passwordTextField.addTarget(target, action: action, for: .editingChanged)
+    }
+    
+    func enabledSignInBtn(login: String, password: String) {
+        if password != "" && login != "" {
+            signIUpBtn.isEnabled = true
+            print("Enabled = true")
+        } else {
+            signIUpBtn.isEnabled = false
+            print("Enabled = false")
+        }
+    }
     
     func setViews() {
         self.addSubview(backgorundImage)

@@ -10,6 +10,9 @@ import UIKit
 
 class signUpVC: UIViewController {
     
+    private lazy var login: String = ""
+    private lazy var password: String = ""
+    
     private var signUpView: SignUpView {
         return self.view as! SignUpView
     }
@@ -22,9 +25,21 @@ class signUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         signUpView.evenToSignIn(self, action: #selector(evenToSignIn))
+        signUpView.nameEditingChange(self, action: #selector(validateName))
+        signUpView.passwordEditingChanged(self, action: #selector(validatePass))
     }
     
     @objc private func evenToSignIn(sender: UIButton) {
         dismiss(animated: true)
+    }
+    
+    @objc private func validateName(sender: UITextField) {
+        login = sender.text!
+        signUpView.enabledSignInBtn(login: login, password: password)
+    }
+    
+    @objc private func validatePass(sender: UITextField) {
+        password = sender.text!
+        signUpView.enabledSignInBtn(login: login, password: password)
     }
 }

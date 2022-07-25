@@ -18,7 +18,7 @@
 		F9417E0128899A0A0042D79D /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9417E0028899A0A0042D79D /* SignUpView.swift */; };
 		F9417E052889E4EC0042D79D /* SignProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9417E042889E4EC0042D79D /* SignProtocol.swift */; };
 		F941FE22288F02BC00CF45C7 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F941FE21288F02BC00CF45C7 /* SignUpVC.swift */; };
-		F97DE778288DBE2900937DD9 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DE777288DBE2900937DD9 /* model.swift */; };
+		F97DE778288DBE2900937DD9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DE777288DBE2900937DD9 /* Model.swift */; };
 		F97DE77B288DBEA800937DD9 /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DE77A288DBEA800937DD9 /* LocalStore.swift */; };
 		F97DE77D288DBF2600937DD9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DE77C288DBF2600937DD9 /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
@@ -38,7 +38,7 @@
 		F9417E0028899A0A0042D79D /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		F9417E042889E4EC0042D79D /* SignProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignProtocol.swift; sourceTree = "<group>"; };
 		F941FE21288F02BC00CF45C7 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
-		F97DE777288DBE2900937DD9 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
+		F97DE777288DBE2900937DD9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		F97DE77A288DBEA800937DD9 /* LocalStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
 		F97DE77C288DBF2600937DD9 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		FC5E0AEB500FC63BA275E38A /* Pods_Homework_4___toDoList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Homework_4___toDoList.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,9 +94,10 @@
 		F9417DE128893BCB0042D79D /* Homework 4 - toDoList */ = {
 			isa = PBXGroup;
 			children = (
-				F97DE779288DBE9500937DD9 /* Model */,
+				F941FE24288F12EA00CF45C7 /* Views */,
+				F97DE779288DBE9500937DD9 /* Models */,
 				F9417E032889E4D30042D79D /* Protocols */,
-				F9417DFB2889958D0042D79D /* UIViewControllers */,
+				F9417DFB2889958D0042D79D /* ViewControllers */,
 				F9417DF92889956D0042D79D /* Source */,
 				F9417DEE28893BCC0042D79D /* Assets.xcassets */,
 				F9417DF328893BCC0042D79D /* Info.plist */,
@@ -116,15 +117,13 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		F9417DFB2889958D0042D79D /* UIViewControllers */ = {
+		F9417DFB2889958D0042D79D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F9417DE628893BCB0042D79D /* SignInView.swift */,
 				F97DE77C288DBF2600937DD9 /* SignInViewController.swift */,
-				F9417E0028899A0A0042D79D /* SignUpView.swift */,
 				F941FE21288F02BC00CF45C7 /* SignUpVC.swift */,
 			);
-			path = UIViewControllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		F9417E032889E4D30042D79D /* Protocols */ = {
@@ -135,13 +134,22 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		F97DE779288DBE9500937DD9 /* Model */ = {
+		F941FE24288F12EA00CF45C7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F97DE777288DBE2900937DD9 /* model.swift */,
+				F9417DE628893BCB0042D79D /* SignInView.swift */,
+				F9417E0028899A0A0042D79D /* SignUpView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F97DE779288DBE9500937DD9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F97DE777288DBE2900937DD9 /* Model.swift */,
 				F97DE77A288DBEA800937DD9 /* LocalStore.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,7 +274,7 @@
 				F97DE77B288DBEA800937DD9 /* LocalStore.swift in Sources */,
 				F9417DE528893BCB0042D79D /* SceneDelegate.swift in Sources */,
 				F9417E052889E4EC0042D79D /* SignProtocol.swift in Sources */,
-				F97DE778288DBE2900937DD9 /* model.swift in Sources */,
+				F97DE778288DBE2900937DD9 /* Model.swift in Sources */,
 				F941FE22288F02BC00CF45C7 /* SignUpVC.swift in Sources */,
 				F9417E0128899A0A0042D79D /* SignUpView.swift in Sources */,
 			);

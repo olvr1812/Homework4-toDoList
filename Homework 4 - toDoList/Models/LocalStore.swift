@@ -8,4 +8,4 @@
 import Foundation
 
 
-var user = User(login: "olvr1812", password: "12345")
+var user = User(login: "olvr", password: "123")

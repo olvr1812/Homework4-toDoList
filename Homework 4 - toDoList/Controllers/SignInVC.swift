@@ -10,6 +10,7 @@ import UIKit
 
 class SignInVC: UIViewController {
     
+    private var user: User?
     private lazy var login: String = ""
     private lazy var password: String = ""
     
@@ -34,7 +35,7 @@ class SignInVC: UIViewController {
         let rootVC = signUpVC()
         rootVC.modalPresentationStyle = .fullScreen
         present(rootVC, animated: true, completion: nil)
-        }
+    }
     
     @objc private func validateName(sender: UITextField) {
         login = sender.text!
@@ -49,7 +50,11 @@ class SignInVC: UIViewController {
     @objc private func btnSignInAction(sender: UIButton) {
         NetworkService.shared.signIn(login: login, password: password, completion: { success in
             if success {
-                 print("Вход успешно выполнен!")
+                print("Вход успешно выполнен!")
+//                self.dismiss(animated: true)
+                let rootVC = TasksVC()
+                rootVC.modalPresentationStyle = .fullScreen
+                self.present(rootVC, animated: true, completion: nil)
             } else {
                 print("Не верный логин и/или пароль")
             }

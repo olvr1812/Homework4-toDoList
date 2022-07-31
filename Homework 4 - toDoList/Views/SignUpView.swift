@@ -29,7 +29,7 @@ class SignUpView: UIView {
         label.text = "Name"
         label.backgroundColor = .clear
         label.textColor = .white
-        label.font = UIFont(name: "Inter", size: 12)
+        label.font = UIFont(name: "Times New Roman", size: 12)
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -38,7 +38,7 @@ class SignUpView: UIView {
     private lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .clear
-        textField.font = UIFont(name: "Inter", size: 14)
+        textField.font = UIFont(name: "Times New Roman", size: 14)
         textField.textColor = .white
         textField.borderStyle = UITextField.BorderStyle.roundedRect
         textField.layer.borderWidth = 1
@@ -53,7 +53,7 @@ class SignUpView: UIView {
         label.text = "Password"
         label.backgroundColor = .clear
         label.textColor = .white
-        label.font = UIFont(name: "Inter", size: 12)
+        label.font = UIFont(name: "Times New Roman", size: 12)
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -78,7 +78,7 @@ class SignUpView: UIView {
         btn.setTitle("Sign In", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.setTitleColor(UIColor.gray, for: .disabled)
-        btn.titleLabel?.font = UIFont(name: "Inter", size: 15)
+        btn.titleLabel?.font = UIFont(name: "Times New Roman", size: 15)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         btn.backgroundColor = .init(red: 0.07, green: 0.19, blue: 0.27, alpha: 1)
         btn.clipsToBounds = true
@@ -121,6 +121,13 @@ class SignUpView: UIView {
         super.touchesBegan(touches, with: event)
             
     }
+    
+    private func setBtnToSignIn() {
+        self.btnToSignIn.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 21).isActive = true
+        self.btnToSignIn.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 22).isActive = true
+        self.btnToSignIn.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        self.btnToSignIn.heightAnchor.constraint(equalToConstant: 25).isActive = true
+    }
 
     private func setNameLabel() {
         self.nameLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 314).isActive = true
@@ -148,13 +155,6 @@ class SignUpView: UIView {
         self.passwordTextField.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 65).isActive = true
         self.passwordTextField.widthAnchor.constraint(equalToConstant: 264).isActive = true
         self.passwordTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-    }
-    
-    private func setBtnToSignIn() {
-        self.btnToSignIn.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 21).isActive = true
-        self.btnToSignIn.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 22).isActive = true
-        self.btnToSignIn.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        self.btnToSignIn.heightAnchor.constraint(equalToConstant: 25).isActive = true
     }
     
     private func setSignUpBtn() {

@@ -11,11 +11,12 @@ class NetworkService {
     static let shared = NetworkService()
     private init() { }
     
+    
     func signIn(login: String, password: String, completion: @escaping(Bool) -> Void) {
         DispatchQueue.global().async {
             sleep(2)
             DispatchQueue.main.async {
-                if login.lowercased() == "olvr1812" && password == "12345" {
+                if login.lowercased() == "olvr" && password == "123" {
                     completion(true)
                 } else {
                     completion(false)

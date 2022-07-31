@@ -89,7 +89,7 @@ class SignInView: UIView {
     }()
     
     private var signInBtn: UIButton = {
-        let btn = UIButton()
+        let btn = UIButton(type: .system)
         btn.setTitle("Sign In", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.setTitleColor(UIColor.gray, for: .disabled)

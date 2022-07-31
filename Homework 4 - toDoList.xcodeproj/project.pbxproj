@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5A5D61A0B6E21C7F147763D0 /* Pods_Homework_4___toDoList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC5E0AEB500FC63BA275E38A /* Pods_Homework_4___toDoList.framework */; };
+		F915CF2A2892AF9800305944 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915CF292892AF9800305944 /* AddTaskView.swift */; };
+		F915CF2C2892B27C00305944 /* AddTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915CF2B2892B27C00305944 /* AddTaskVC.swift */; };
 		F9417DE328893BCB0042D79D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9417DE228893BCB0042D79D /* AppDelegate.swift */; };
 		F9417DE528893BCB0042D79D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9417DE428893BCB0042D79D /* SceneDelegate.swift */; };
 		F9417DE728893BCB0042D79D /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9417DE628893BCB0042D79D /* SignInView.swift */; };
@@ -21,12 +23,18 @@
 		F97DE778288DBE2900937DD9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DE777288DBE2900937DD9 /* Model.swift */; };
 		F97DE77B288DBEA800937DD9 /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DE77A288DBEA800937DD9 /* LocalStore.swift */; };
 		F97DE77D288DBF2600937DD9 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DE77C288DBF2600937DD9 /* SignInVC.swift */; };
+		F9B36BE7288FC98500497C4A /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B36BE6288FC98500497C4A /* TasksView.swift */; };
+		F9B36BE9288FCF5900497C4A /* TasksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B36BE8288FCF5900497C4A /* TasksVC.swift */; };
+		F9B36BED28905C9100497C4A /* InfoTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B36BEC28905C9100497C4A /* InfoTaskView.swift */; };
+		F9B36BEF2890629E00497C4A /* InfoTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B36BEE2890629E00497C4A /* InfoTaskVC.swift */; };
 		F9FB0DDA288F4A2500245B49 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FB0DD9288F4A2500245B49 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6B807C52D6E0E6A8549FB5E4 /* Pods-Homework 4 - toDoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homework 4 - toDoList.debug.xcconfig"; path = "Target Support Files/Pods-Homework 4 - toDoList/Pods-Homework 4 - toDoList.debug.xcconfig"; sourceTree = "<group>"; };
 		E225E2C64A503C5391DB3333 /* Pods-Homework 4 - toDoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homework 4 - toDoList.release.xcconfig"; path = "Target Support Files/Pods-Homework 4 - toDoList/Pods-Homework 4 - toDoList.release.xcconfig"; sourceTree = "<group>"; };
+		F915CF292892AF9800305944 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
+		F915CF2B2892B27C00305944 /* AddTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskVC.swift; sourceTree = "<group>"; };
 		F9417DDF28893BCB0042D79D /* Homework 4 - toDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Homework 4 - toDoList.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9417DE228893BCB0042D79D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9417DE428893BCB0042D79D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +50,10 @@
 		F97DE777288DBE2900937DD9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		F97DE77A288DBEA800937DD9 /* LocalStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
 		F97DE77C288DBF2600937DD9 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		F9B36BE6288FC98500497C4A /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
+		F9B36BE8288FCF5900497C4A /* TasksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksVC.swift; sourceTree = "<group>"; };
+		F9B36BEC28905C9100497C4A /* InfoTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTaskView.swift; sourceTree = "<group>"; };
+		F9B36BEE2890629E00497C4A /* InfoTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTaskVC.swift; sourceTree = "<group>"; };
 		F9FB0DD9288F4A2500245B49 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		FC5E0AEB500FC63BA275E38A /* Pods_Homework_4___toDoList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Homework_4___toDoList.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,7 +110,7 @@
 			children = (
 				F97DE779288DBE9500937DD9 /* Models */,
 				F941FE24288F12EA00CF45C7 /* Views */,
-				F9417DFB2889958D0042D79D /* ViewControllers */,
+				F9417DFB2889958D0042D79D /* Controllers */,
 				F9417E032889E4D30042D79D /* Protocols */,
 				F9417DF92889956D0042D79D /* Source */,
 				F9417DEE28893BCC0042D79D /* Assets.xcassets */,
@@ -119,13 +131,16 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		F9417DFB2889958D0042D79D /* ViewControllers */ = {
+		F9417DFB2889958D0042D79D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				F97DE77C288DBF2600937DD9 /* SignInVC.swift */,
 				F941FE21288F02BC00CF45C7 /* SignUpVC.swift */,
+				F9B36BE8288FCF5900497C4A /* TasksVC.swift */,
+				F9B36BEE2890629E00497C4A /* InfoTaskVC.swift */,
+				F915CF2B2892B27C00305944 /* AddTaskVC.swift */,
 			);
-			path = ViewControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		F9417E032889E4D30042D79D /* Protocols */ = {
@@ -141,6 +156,9 @@
 			children = (
 				F9417DE628893BCB0042D79D /* SignInView.swift */,
 				F9417E0028899A0A0042D79D /* SignUpView.swift */,
+				F9B36BE6288FC98500497C4A /* TasksView.swift */,
+				F9B36BEC28905C9100497C4A /* InfoTaskView.swift */,
+				F915CF292892AF9800305944 /* AddTaskView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,12 +290,18 @@
 			files = (
 				F9FB0DDA288F4A2500245B49 /* NetworkService.swift in Sources */,
 				F97DE77D288DBF2600937DD9 /* SignInVC.swift in Sources */,
+				F9B36BEF2890629E00497C4A /* InfoTaskVC.swift in Sources */,
 				F9417DED28893BCB0042D79D /* Homework_4___toDoList.xcdatamodeld in Sources */,
 				F9417DE728893BCB0042D79D /* SignInView.swift in Sources */,
 				F9417DE328893BCB0042D79D /* AppDelegate.swift in Sources */,
 				F97DE77B288DBEA800937DD9 /* LocalStore.swift in Sources */,
 				F9417DE528893BCB0042D79D /* SceneDelegate.swift in Sources */,
+				F9B36BE7288FC98500497C4A /* TasksView.swift in Sources */,
+				F9B36BED28905C9100497C4A /* InfoTaskView.swift in Sources */,
 				F9417E052889E4EC0042D79D /* SignProtocol.swift in Sources */,
+				F9B36BE9288FCF5900497C4A /* TasksVC.swift in Sources */,
+				F915CF2C2892B27C00305944 /* AddTaskVC.swift in Sources */,
+				F915CF2A2892AF9800305944 /* AddTaskView.swift in Sources */,
 				F97DE778288DBE2900937DD9 /* Model.swift in Sources */,
 				F941FE22288F02BC00CF45C7 /* SignUpVC.swift in Sources */,
 				F9417E0128899A0A0042D79D /* SignUpView.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-var dictionary: [String: String] = [:]
+var users: [User]?
 
 class User {
     var login: String

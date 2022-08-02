@@ -63,17 +63,19 @@ class AddTask: UIView {
         return label
     }()
     
-    private lazy var descriptionTaskTextField: UITextField = {
-        let textField = UITextField()
-        textField.backgroundColor = .clear
-        textField.font = UIFont(name: "Times New Roman", size: 14)
-        textField.textColor = .white
-        textField.borderStyle = UITextField.BorderStyle.roundedRect
-        textField.layer.borderWidth = 1
-        textField.layer.cornerRadius = 5
-        textField.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
+    private lazy var descriptionTaskTextField: UITextView = {
+        let label = UITextView()
+        label.textColor = UIColor.white
+        label.backgroundColor = .clear
+        label.isScrollEnabled = false
+        label.text = ""
+        label.font = UIFont(name: "Times New Roman", size: 17)
+        label.textAlignment = .justified
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 5
+        label.layer.borderWidth = 1
+        label.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
+        return label
     }()
     
     private lazy var btnAddTask: UIButton = {
@@ -116,6 +118,13 @@ class AddTask: UIView {
         setDescriptionTaskLabel()
         setTaskDescriptionTextField()
         setBtnNewTask()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let _ = touches.first {
+            self.endEditing(true)
+        }
+        super.touchesBegan(touches, with: event)
     }
     
     private func setBacgroundIamge() {
@@ -201,5 +210,17 @@ class AddTask: UIView {
     
     func evenBackToTasks(_ target: Any?, action: Selector) {
         btnBackToTasks.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    func editNameTask(_ target: Any?, action: Selector) {
+        nameTaskTextField.addTarget(target, action: action, for: .editingChanged)
+    }
+    
+    func editSummaryTask(_ target: Any?, action: Selector) {
+        descriptionTaskTextField.refreshControl?.addTarget(target, action: action, for: .editingChanged)
+    }
+    
+    func addNewTask(_ target: Any?, action: Selector) {
+        btnAddTask.addTarget(target, action: action, for: .touchUpInside)
     }
 }

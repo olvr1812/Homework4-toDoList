@@ -50,13 +50,7 @@ class InfoTaskView: UIView {
         label.textColor = UIColor.white
         label.backgroundColor = .clear
         label.isScrollEnabled = false
-        label.text = """
- 1. Спостел встол
- 2. Одежд поддель
- 3. Бегит пашуль
- 4. Патель
- 5. Памыть
-"""
+        label.text = ""
         label.font = UIFont(name: "Times New Roman", size: 17)
         label.textAlignment = .justified
         label.clipsToBounds = true

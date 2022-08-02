@@ -40,22 +40,6 @@ class TasksView: UIView {
         return segment
     }()
     
-    private lazy var btnInfoTask: UIButton = {
-        let btn = UIButton()
-        btn.setTitle("About task", for: .normal)
-        btn.titleLabel?.font = UIFont(name: "Times New Roman", size: 15)
-        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
-        btn.setTitleColor(.white, for: .normal)
-        btn.setTitleColor(UIColor.gray, for: .disabled)
-        btn.backgroundColor = .init(red: 0.07, green: 0.19, blue: 0.27, alpha: 1)
-        btn.clipsToBounds = true
-        btn.layer.cornerRadius = 10
-        btn.layer.borderWidth = 0
-        btn.contentHorizontalAlignment = .center
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        return btn
-    }()
-    
     private lazy var btnAddTask: UIButton = {
         let btn = UIButton()
         btn.setTitle("ADD TASK", for: .normal)
@@ -78,7 +62,6 @@ class TasksView: UIView {
         setImage()
         setTypeOfTasks()
         setTableViewTasks()
-        setBtnInfoTask()
         setBtnNewTask()
     }
     
@@ -88,7 +71,6 @@ class TasksView: UIView {
         setImage()
         setTypeOfTasks()
         setTableViewTasks()
-        setBtnInfoTask()
         setBtnNewTask()
     }
     
@@ -96,15 +78,6 @@ class TasksView: UIView {
         backgroundImage.snp.makeConstraints({ maker in
             maker.height.equalToSuperview()
             maker.width.equalToSuperview()
-        })
-    }
-    
-    private func setBtnInfoTask() {
-        btnInfoTask.snp.makeConstraints({ maker in
-            maker.bottom.equalTo(self.btnAddTask).inset(101)
-            maker.left.equalToSuperview().inset(80)
-            maker.right.equalToSuperview().inset(81)
-            maker.height.equalTo(55)
         })
     }
     
@@ -150,19 +123,12 @@ class TasksView: UIView {
         self.addSubview(self.backgroundImage)
         self.addSubview(self.tableViewTasks)
         self.addSubview(self.btnAddTask)
-        self.addSubview(self.btnInfoTask)
         self.addSubview(self.typeOfTasks)
-    }
-    
-    func evenBtnInfoTask(_ target: Any?, action: Selector) {
-        btnInfoTask.addTarget(target, action: action, for: .touchUpInside)
     }
     
     func evenBtnAddTask(_ target: Any?, action: Selector) {
         btnAddTask.addTarget(target, action: action, for: .touchUpInside)
     }
-    
-    
 }
 
 

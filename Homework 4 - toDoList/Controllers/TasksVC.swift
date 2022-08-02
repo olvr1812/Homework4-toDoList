@@ -25,16 +25,9 @@ class TasksVC: UIViewController {
         super.viewDidLoad()
         tasksView.addDataSource(controller: self)
         tasksView.addDelegate(controller: self)
-        tasksView.evenBtnInfoTask(self, action: #selector(toInfoTask))
         tasksView.evenBtnAddTask(self, action: #selector(toAddTask))
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
-    }
-    
-    @objc private func toInfoTask(sender: UIButton) {
-        let rootVC = InfoTaskVC()
-        rootVC.modalPresentationStyle = .fullScreen
-        present(rootVC, animated: true)
     }
     
     @objc private func toAddTask(sender: UIButton) {

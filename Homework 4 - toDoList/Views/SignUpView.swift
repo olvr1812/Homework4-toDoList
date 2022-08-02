@@ -119,7 +119,6 @@ class SignUpView: UIView {
             self.endEditing(true)
         }
         super.touchesBegan(touches, with: event)
-            
     }
     
     private func setBtnToSignIn() {

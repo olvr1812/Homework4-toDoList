@@ -26,7 +26,6 @@ class TasksView: UIView {
         tabView.layer.borderWidth = 1
         tabView.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
         tabView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-//        tabView.dataSource = self
         return tabView
     }()
     
@@ -133,6 +132,18 @@ class TasksView: UIView {
             maker.bottom.equalToSuperview().inset(81)
             maker.height.equalTo(55)
         })
+    }
+    
+    func addDataSource(controller: UITableViewDataSource) {
+        tableViewTasks.dataSource = controller
+    }
+    
+    func addDelegate(controller: UITableViewDelegate) {
+        tableViewTasks.delegate = controller
+    }
+    
+    func realoadDataTasks() {
+        tableViewTasks.reloadData()
     }
     
     func setViews() {

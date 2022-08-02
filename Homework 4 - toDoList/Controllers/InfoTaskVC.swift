@@ -10,6 +10,10 @@ import UIKit
 
 class InfoTaskVC: UIViewController {
     
+    private var nameOfTaks = String()
+    private var descriptionOfTask = String()
+    private var indexOfTask = Int()
+    
     private var infoTaskView: InfoTaskView {
         return self.view as! InfoTaskView
     }
@@ -22,9 +26,23 @@ class InfoTaskVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         infoTaskView.evenBackToTasks(self, action: #selector(backToTasks))
+        infoTaskView.evenDeleteTask(self, action: #selector(deleteTask))
+        infoTaskView.setInfoInTask(name: nameOfTaks, description: descriptionOfTask)
+    }
+    
+    func getInfo(name: String, summary: String, index: Int) {
+        nameOfTaks = name
+        descriptionOfTask = summary
+        indexOfTask = index
     }
     
     @objc private func backToTasks(sander: UIButton) {
+        dismiss(animated: true)
+    }
+    
+    @objc private func deleteTask(sender: UIButton) {
+        myTasks.remove(at: indexOfTask)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         dismiss(animated: true)
     }
 }

@@ -131,6 +131,10 @@ class InfoTaskView: UIView {
         })
     }
     
+    func setInfoInTask(name: String, description: String) {
+        nameTask.text = name
+        summaryTask.text = description
+    }
     
     func setViews() {
         self.addSubview(backImage)
@@ -142,5 +146,9 @@ class InfoTaskView: UIView {
     
     func evenBackToTasks(_ target: Any?, action: Selector) {
         btnBackToTasks.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    func evenDeleteTask(_ target: Any?, action: Selector) {
+        deleteTask.addTarget(target, action: action, for: .touchUpInside)
     }
 }

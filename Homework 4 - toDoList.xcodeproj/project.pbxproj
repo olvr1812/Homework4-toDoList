@@ -20,12 +20,13 @@
 		F9417E0128899A0A0042D79D /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9417E0028899A0A0042D79D /* SignUpView.swift */; };
 		F9417E052889E4EC0042D79D /* SignProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9417E042889E4EC0042D79D /* SignProtocol.swift */; };
 		F941FE22288F02BC00CF45C7 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F941FE21288F02BC00CF45C7 /* SignUpVC.swift */; };
-		F97DE778288DBE2900937DD9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DE777288DBE2900937DD9 /* Model.swift */; };
+		F97DE778288DBE2900937DD9 /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DE777288DBE2900937DD9 /* UsersModel.swift */; };
 		F97DE77D288DBF2600937DD9 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97DE77C288DBF2600937DD9 /* SignInVC.swift */; };
 		F9B36BE7288FC98500497C4A /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B36BE6288FC98500497C4A /* TasksView.swift */; };
 		F9B36BE9288FCF5900497C4A /* TasksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B36BE8288FCF5900497C4A /* TasksVC.swift */; };
 		F9B36BED28905C9100497C4A /* InfoTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B36BEC28905C9100497C4A /* InfoTaskView.swift */; };
 		F9B36BEF2890629E00497C4A /* InfoTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B36BEE2890629E00497C4A /* InfoTaskVC.swift */; };
+		F9C741AF2899546800C4D003 /* TasksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C741AE2899546800C4D003 /* TasksModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,12 +46,13 @@
 		F9417E0028899A0A0042D79D /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		F9417E042889E4EC0042D79D /* SignProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignProtocol.swift; sourceTree = "<group>"; };
 		F941FE21288F02BC00CF45C7 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
-		F97DE777288DBE2900937DD9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		F97DE777288DBE2900937DD9 /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
 		F97DE77C288DBF2600937DD9 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		F9B36BE6288FC98500497C4A /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
 		F9B36BE8288FCF5900497C4A /* TasksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksVC.swift; sourceTree = "<group>"; };
 		F9B36BEC28905C9100497C4A /* InfoTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTaskView.swift; sourceTree = "<group>"; };
 		F9B36BEE2890629E00497C4A /* InfoTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTaskVC.swift; sourceTree = "<group>"; };
+		F9C741AE2899546800C4D003 /* TasksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksModel.swift; sourceTree = "<group>"; };
 		FC5E0AEB500FC63BA275E38A /* Pods_Homework_4___toDoList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Homework_4___toDoList.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -162,7 +164,8 @@
 		F97DE779288DBE9500937DD9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F97DE777288DBE2900937DD9 /* Model.swift */,
+				F97DE777288DBE2900937DD9 /* UsersModel.swift */,
+				F9C741AE2899546800C4D003 /* TasksModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			files = (
 				F97DE77D288DBF2600937DD9 /* SignInVC.swift in Sources */,
 				F9B36BEF2890629E00497C4A /* InfoTaskVC.swift in Sources */,
+				F9C741AF2899546800C4D003 /* TasksModel.swift in Sources */,
 				F9417DED28893BCB0042D79D /* Homework_4___toDoList.xcdatamodeld in Sources */,
 				F9417DE728893BCB0042D79D /* SignInView.swift in Sources */,
 				F9417DE328893BCB0042D79D /* AppDelegate.swift in Sources */,
@@ -294,7 +298,7 @@
 				F9B36BE9288FCF5900497C4A /* TasksVC.swift in Sources */,
 				F915CF2C2892B27C00305944 /* AddTaskVC.swift in Sources */,
 				F915CF2A2892AF9800305944 /* AddTaskView.swift in Sources */,
-				F97DE778288DBE2900937DD9 /* Model.swift in Sources */,
+				F97DE778288DBE2900937DD9 /* UsersModel.swift in Sources */,
 				F941FE22288F02BC00CF45C7 /* SignUpVC.swift in Sources */,
 				F9417E0128899A0A0042D79D /* SignUpView.swift in Sources */,
 			);

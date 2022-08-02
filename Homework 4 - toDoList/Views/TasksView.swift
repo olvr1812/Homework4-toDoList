@@ -18,9 +18,15 @@ class TasksView: UIView {
         return image
     }()
     
-    private lazy var tableViewTasks: UIImageView = {
-        let tabView = UIImageView()
-        tabView.image = UIImage(named: "tasks")
+    private lazy var tableViewTasks: UITableView = {
+        let tabView = UITableView()
+        tabView.backgroundColor = .clear
+        tabView.clipsToBounds = true
+        tabView.layer.cornerRadius = 10
+        tabView.layer.borderWidth = 1
+        tabView.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
+        tabView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+//        tabView.dataSource = self
         return tabView
     }()
     
@@ -144,6 +150,8 @@ class TasksView: UIView {
     func evenBtnAddTask(_ target: Any?, action: Selector) {
         btnAddTask.addTarget(target, action: action, for: .touchUpInside)
     }
+    
+    
 }
 
 

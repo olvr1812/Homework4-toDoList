@@ -181,13 +181,15 @@ class SignUpView: UIView {
         passwordTextField.addTarget(target, action: action, for: .editingChanged)
     }
     
+    func evenSignUp(_ target: Any?, action: Selector) {
+        signIUpBtn.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
     func enabledSignInBtn(login: String, password: String) {
         if password != "" && login != "" {
             signIUpBtn.isEnabled = true
-            print("Enabled = true")
         } else {
             signIUpBtn.isEnabled = false
-            print("Enabled = false")
         }
     }
     

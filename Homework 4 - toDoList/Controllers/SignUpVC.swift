@@ -27,6 +27,7 @@ class signUpVC: UIViewController {
         signUpView.evenToSignIn(self, action: #selector(evenToSignIn))
         signUpView.nameEditingChange(self, action: #selector(validateName))
         signUpView.passwordEditingChanged(self, action: #selector(validatePass))
+        signUpView.evenSignUp(self, action: #selector(evenSignUp))
     }
     
     @objc private func evenToSignIn(sender: UIButton) {
@@ -41,5 +42,11 @@ class signUpVC: UIViewController {
     @objc private func validatePass(sender: UITextField) {
         password = sender.text!
         signUpView.enabledSignInBtn(login: login, password: password)
+    }
+    
+    @objc private func evenSignUp(sender: UIButton) {
+        users.append(User(login: login, password: password))
+        print(users.count)
+        dismiss(animated: true)
     }
 }

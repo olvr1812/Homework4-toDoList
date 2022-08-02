@@ -49,6 +49,7 @@ class InfoTaskView: UIView {
         let label = UITextView()
         label.textColor = UIColor.white
         label.backgroundColor = .clear
+        label.isScrollEnabled = false
         label.text = """
  1. Спостел встол
  2. Одежд поддель

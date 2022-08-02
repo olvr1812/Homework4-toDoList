@@ -211,10 +211,8 @@ class SignInView: UIView {
     func enabledSignInBtn(login: String, password: String) {
         if password != "" && login != "" {
             signInBtn.isEnabled = true
-            print("Enabled = true")
         } else {
             signInBtn.isEnabled = false
-            print("Enabled = false")
         }
     }
     

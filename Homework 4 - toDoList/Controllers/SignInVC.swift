@@ -48,7 +48,8 @@ class SignInVC: UIViewController {
     }
     
     @objc private func btnSignInAction(sender: UIButton) {
-        NetworkService.shared.signIn(login: login, password: password, completion: { success in
+        let checkUser = User(login: login, password: password)
+        NetworkService.shared.signIn(checkUser: checkUser, completion: { success in
             if success {
                 print("Вход успешно выполнен!")
 //                self.dismiss(animated: true)

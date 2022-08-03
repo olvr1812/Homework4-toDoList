@@ -33,7 +33,7 @@ class AddTask: UIView {
         label.text = "Title"
         label.backgroundColor = .clear
         label.textColor = .white
-        label.font = UIFont(name: "Times New Roman", size: 12)
+        label.font = UIFont(name: "Times New Roman", size: 13)
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -57,7 +57,7 @@ class AddTask: UIView {
         label.text = "Description"
         label.backgroundColor = .clear
         label.textColor = .white
-        label.font = UIFont(name: "Times New Roman", size: 12)
+        label.font = UIFont(name: "Times New Roman", size: 13)
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -65,6 +65,7 @@ class AddTask: UIView {
     
     private lazy var descriptionTaskTextField: UITextView = {
         let label = UITextView()
+        label.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         label.textColor = UIColor.white
         label.backgroundColor = .clear
         label.isScrollEnabled = false
@@ -75,14 +76,15 @@ class AddTask: UIView {
         label.layer.cornerRadius = 5
         label.layer.borderWidth = 1
         label.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
+        label.allowsEditingTextAttributes = true
         return label
     }()
     
     private lazy var btnAddTask: UIButton = {
         let btn = UIButton()
         btn.setTitle("+", for: .normal)
-        btn.titleLabel?.font = UIFont(name: "Times New Roman", size: 15)
-        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        btn.titleLabel?.font = UIFont(name: "Times New Roman", size: 25)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         btn.setTitleColor(.white, for: .normal)
         btn.setTitleColor(UIColor.gray, for: .disabled)
         btn.backgroundColor = .init(red: 0.07, green: 0.19, blue: 0.27, alpha: 1)
@@ -206,6 +208,10 @@ class AddTask: UIView {
         addSubview(descriptionTaskLabel)
         addSubview(descriptionTaskTextField)
         addSubview(btnAddTask)
+    }
+    
+    func delegateSummary(controller: UITextViewDelegate) {
+        descriptionTaskTextField.delegate = controller
     }
     
     func evenBackToTasks(_ target: Any?, action: Selector) {

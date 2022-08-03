@@ -22,7 +22,7 @@ class SignInView: UIView {
         button.setTitle("Sign Up", for: .normal)
         button.backgroundColor = .clear
         button.setTitleColor(UIColor.white, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Inter", size: 14)
+        button.titleLabel?.font = UIFont(name: "Times New Roman", size: 14)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.contentHorizontalAlignment = .center
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -34,7 +34,7 @@ class SignInView: UIView {
         label.text = "Name"
         label.backgroundColor = .clear
         label.textColor = .white
-        label.font = UIFont(name: "Inter", size: 12)
+        label.font = UIFont(name: "Times New Roman", size: 12)
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -43,7 +43,7 @@ class SignInView: UIView {
     private lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .clear
-        textField.font = UIFont(name: "Inter", size: 14)
+        textField.font = UIFont(name: "Times New Roman", size: 16)
         textField.textColor = .white
         textField.borderStyle = UITextField.BorderStyle.roundedRect
         textField.layer.borderWidth = 1
@@ -58,7 +58,7 @@ class SignInView: UIView {
         label.text = "Password"
         label.backgroundColor = .clear
         label.textColor = .white
-        label.font = UIFont(name: "Inter", size: 12)
+        label.font = UIFont(name: "Times New Roman", size: 12)
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -67,7 +67,7 @@ class SignInView: UIView {
     private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
         textField.isSecureTextEntry = true
-        textField.font = UIFont(name: "Inter", size: 14)
+        textField.font = UIFont(name: "Times New Roman", size: 16)
         textField.backgroundColor = .clear
         textField.textColor = .white
         textField.borderStyle = UITextField.BorderStyle.roundedRect
@@ -82,7 +82,7 @@ class SignInView: UIView {
         let btn = UIButton()
         btn.setTitle("Forget password", for: .normal)
         btn.setTitleColor(UIColor(red: 0.33, green: 0.55, blue: 0.83, alpha: 1), for: .normal)
-        btn.titleLabel?.font = UIFont(name: "Inter", size: 12)
+        btn.titleLabel?.font = UIFont(name: "Times New Roman", size: 12)
         btn.titleLabel?.adjustsFontSizeToFitWidth = true
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
@@ -93,7 +93,7 @@ class SignInView: UIView {
         btn.setTitle("Sign In", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.setTitleColor(UIColor.gray, for: .disabled)
-        btn.titleLabel?.font = UIFont(name: "Inter", size: 15)
+        btn.titleLabel?.font = UIFont(name: "Times New Roman", size: 20)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         btn.backgroundColor = .init(red: 0.07, green: 0.19, blue: 0.27, alpha: 1)
         btn.clipsToBounds = true

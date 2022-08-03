@@ -38,7 +38,7 @@ class SignUpView: UIView {
     private lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .clear
-        textField.font = UIFont(name: "Times New Roman", size: 14)
+        textField.font = UIFont(name: "Times New Roman", size: 16)
         textField.textColor = .white
         textField.borderStyle = UITextField.BorderStyle.roundedRect
         textField.layer.borderWidth = 1
@@ -61,7 +61,7 @@ class SignUpView: UIView {
 
     private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.font = UIFont(name: "Inter", size: 14)
+        textField.font = UIFont(name: "Times New Roman", size: 16)
         textField.backgroundColor = .clear
         textField.textColor = .white
         textField.isSecureTextEntry = true
@@ -75,7 +75,7 @@ class SignUpView: UIView {
     
     private lazy var signIUpBtn: UIButton = {
         let btn = UIButton()
-        btn.setTitle("Sign In", for: .normal)
+        btn.setTitle("Sign Up", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.setTitleColor(UIColor.gray, for: .disabled)
         btn.titleLabel?.font = UIFont(name: "Times New Roman", size: 15)

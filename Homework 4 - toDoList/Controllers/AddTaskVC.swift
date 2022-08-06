@@ -25,12 +25,18 @@ class AddTaskVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addTaskView.evenBackToTasks(self, action: #selector(backToTasks))
+        addTaskView.eventDeadlineForTask(self, action: #selector(deadlineOfTask))
         addTaskView.editNameTask(self, action: #selector(newNameTask))
         addTaskView.addNewTask(self, action: #selector(addNewTask))
     }
     
     @objc private func backToTasks(sender: UIButton) {
         dismiss(animated: true)
+    }
+    
+    @objc private func deadlineOfTask(sender: UIButton) {
+        print(Date())
+        addTaskView.openSetDeadline()
     }
     
     @objc private func newNameTask(sender: UITextField) {

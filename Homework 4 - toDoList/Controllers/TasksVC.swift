@@ -69,8 +69,7 @@ extension TasksVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.textColor = .white
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CellForTasks
         cell.backgroundColor = .clear
         cell.clipsToBounds = true
         cell.layer.borderWidth = 1
@@ -80,11 +79,11 @@ extension TasksVC: UITableViewDataSource {
         let typeOfTask = tasksView.changedTypeOfTask()
         switch typeOfTask {
         case 0:
-            cell.textLabel?.text = userTasks.readyTasks[indexPath.row].name
+            cell.setLabel(taskName: userTasks.readyTasks[indexPath.row].name)
         case 1:
-            cell.textLabel?.text = userTasks.inProgressTasks[indexPath.row].name
+            cell.setLabel(taskName: userTasks.inProgressTasks[indexPath.row].name)
         default:
-            cell.textLabel?.text = ""
+            cell.setLabel(taskName: "")
         }
         
         return cell
@@ -131,5 +130,9 @@ extension TasksVC: UITableViewDelegate {
         rootVC.getInfo(name: name, summary: summary, index: indexOfTask, status: status)
         rootVC.modalPresentationStyle = .fullScreen
         present(rootVC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
 }

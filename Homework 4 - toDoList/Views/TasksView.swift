@@ -36,7 +36,7 @@ class TasksView: UIView {
         tabView.layer.cornerRadius = 10
         tabView.layer.borderWidth = 1
         tabView.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
-        tabView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tabView.register(CellForTasks.self, forCellReuseIdentifier: "cell")
         return tabView
     }()
     

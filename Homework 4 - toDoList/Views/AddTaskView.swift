@@ -22,10 +22,17 @@ class AddTask: UIView {
         return btn
     }()
     
-    private lazy var clockOfTask: UIButton = {
+    private lazy var deadlineOfTask: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "clock"), for: .normal)
         return btn
+    }()
+    
+    private lazy var setDeadline: UIDatePicker = {
+        let dataPicker = UIDatePicker()
+        dataPicker.isHidden = true
+        dataPicker.tintColor = .white
+        return dataPicker
     }()
     
     private lazy var nameTaskLabel: UILabel = {
@@ -42,7 +49,7 @@ class AddTask: UIView {
     private lazy var nameTaskTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .clear
-        textField.font = UIFont(name: "Times New Roman", size: 14)
+        textField.font = UIFont(name: "Times New Roman", size: 17)
         textField.textColor = .white
         textField.borderStyle = UITextField.BorderStyle.roundedRect
         textField.layer.borderWidth = 1
@@ -102,6 +109,7 @@ class AddTask: UIView {
         setBacgroundIamge()
         setBtnBackToTasks()
         setClockOfTask()
+        setSetDeadline()
         setNameTaskLabel()
         setTaskNameTextField()
         setDescriptionTaskLabel()
@@ -115,6 +123,7 @@ class AddTask: UIView {
         setBacgroundIamge()
         setBtnBackToTasks()
         setClockOfTask()
+        setSetDeadline()
         setNameTaskLabel()
         setTaskNameTextField()
         setDescriptionTaskLabel()
@@ -146,11 +155,20 @@ class AddTask: UIView {
     }
     
     private func setClockOfTask() {
-        clockOfTask.snp.makeConstraints({ maker in
+        deadlineOfTask.snp.makeConstraints({ maker in
             maker.top.equalTo(self.safeAreaLayoutGuide).inset(53)
             maker.right.equalToSuperview().inset(33)
             maker.width.equalTo(28)
             maker.height.equalTo(28)
+        })
+    }
+    
+    private func setSetDeadline() {
+        setDeadline.snp.makeConstraints( { maker in
+            maker.left.equalToSuperview().inset(100)
+            maker.right.equalTo(deadlineOfTask.snp.left).inset(-30)
+            maker.top.equalTo(self.safeAreaLayoutGuide).inset(45)
+            maker.height.equalTo(40)
         })
     }
     
@@ -202,7 +220,8 @@ class AddTask: UIView {
     private func setViews() {
         addSubview(backImage)
         addSubview(btnBackToTasks)
-        addSubview(clockOfTask)
+        addSubview(deadlineOfTask)
+        addSubview(setDeadline)
         addSubview(nameTaskLabel)
         addSubview(nameTaskTextField)
         addSubview(descriptionTaskLabel)
@@ -212,6 +231,20 @@ class AddTask: UIView {
     
     func evenBackToTasks(_ target: Any?, action: Selector) {
         btnBackToTasks.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    func eventDeadlineForTask(_ target: Any?, action: Selector) {
+        deadlineOfTask.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    func openSetDeadline() {
+        if setDeadline.isHidden {
+            setDeadline.isHidden = false
+        } else {
+            setDeadline.isHidden = true
+            print(setDeadline.date)
+        }
+        
     }
     
     func editNameTask(_ target: Any?, action: Selector) {

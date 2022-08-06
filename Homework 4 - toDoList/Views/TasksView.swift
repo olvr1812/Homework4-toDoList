@@ -18,6 +18,17 @@ class TasksView: UIView {
         return image
     }()
     
+    private lazy var btnLogOut: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("Log Out", for: .normal)
+        btn.backgroundColor = .clear
+        btn.setTitleColor(UIColor.white, for: .normal)
+        btn.titleLabel?.font = UIFont(name: "Times New Roman", size: 14)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        btn.contentHorizontalAlignment = .center
+        return btn
+    }()
+    
     private lazy var tableViewTasks: UITableView = {
         let tabView = UITableView()
         tabView.backgroundColor = .clear
@@ -60,6 +71,7 @@ class TasksView: UIView {
         super.init(frame: frame)
         setViews()
         setImage()
+        setLogOut()
         setTypeOfTasks()
         setTableViewTasks()
         setBtnNewTask()
@@ -69,6 +81,7 @@ class TasksView: UIView {
         super.init(coder: aDecoder)
         setViews()
         setImage()
+        setLogOut()
         setTypeOfTasks()
         setTableViewTasks()
         setBtnNewTask()
@@ -81,20 +94,29 @@ class TasksView: UIView {
         })
     }
     
+    private func setLogOut() {
+        btnLogOut.snp.makeConstraints( { maker in
+            maker.top.equalTo(self.safeAreaLayoutGuide).inset(28)
+            maker.right.equalToSuperview().inset(26)
+            maker.width.equalTo(56)
+            maker.height.equalTo(18)
+        })
+    }
+    
     private func setTypeOfTasks() {
         typeOfTasks.snp.makeConstraints({ maker in
             maker.left.equalToSuperview().inset(18)
             maker.right.equalToSuperview().inset(19)
-            maker.top.equalToSuperview().inset(73)
+            maker.top.equalToSuperview().inset(108)
             maker.height.equalTo(26)
         })
     }
     
     private func setTableViewTasks() {
         tableViewTasks.snp.makeConstraints({ maker in
-            maker.top.equalToSuperview().inset(133)
+            maker.top.equalToSuperview().inset(168)
             maker.width.equalToSuperview()
-            maker.height.equalTo(250)
+            maker.bottom.equalTo(btnAddTask.snp_topMargin).inset(-50)
         })
     }
     
@@ -121,9 +143,22 @@ class TasksView: UIView {
     
     func setViews() {
         self.addSubview(self.backgroundImage)
+        self.addSubview(self.btnLogOut)
         self.addSubview(self.tableViewTasks)
         self.addSubview(self.btnAddTask)
         self.addSubview(self.typeOfTasks)
+    }
+    
+    func eventLogOut(target: Any?, action:Selector) {
+        btnLogOut.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    func changedTypeOfTask() -> Int {
+        typeOfTasks.selectedSegmentIndex
+    }
+    
+    func tapTypeOfTask(target: Any?, action: Selector) {
+        typeOfTasks.addTarget(target, action: action, for: .valueChanged)
     }
     
     func evenBtnAddTask(_ target: Any?, action: Selector) {

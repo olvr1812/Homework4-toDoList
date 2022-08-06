@@ -13,6 +13,7 @@ class InfoTaskVC: UIViewController {
     private var nameOfTaks = String()
     private var descriptionOfTask = String()
     private var indexOfTask = Int()
+    private var statusOfTask = Bool()
     
     private var infoTaskView: InfoTaskView {
         return self.view as! InfoTaskView
@@ -30,10 +31,11 @@ class InfoTaskVC: UIViewController {
         infoTaskView.setInfoInTask(name: nameOfTaks, description: descriptionOfTask)
     }
     
-    func getInfo(name: String, summary: String, index: Int) {
+    func getInfo(name: String, summary: String, index: Int, status: Bool) {
         nameOfTaks = name
         descriptionOfTask = summary
         indexOfTask = index
+        statusOfTask = status
     }
     
     @objc private func backToTasks(sander: UIButton) {
@@ -41,7 +43,7 @@ class InfoTaskVC: UIViewController {
     }
     
     @objc private func deleteTask(sender: UIButton) {
-        myTasks.remove(at: indexOfTask)
+        userTasks.removeTask(status: statusOfTask, index: indexOfTask)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         dismiss(animated: true)
     }

@@ -7,12 +7,32 @@
 
 import Foundation
 
+
+
 struct MyTask {
     var name: String
-    var discription: String
+    var summary: String
+    var status: Bool = false
 }
 
-var task1 = MyTask(name: "Таблица задач", discription: "Реализовать в своем проекте табоицу задач в UITableView по принципам MVC")
-var task2 = MyTask(name: "Окно входа и регисрации", discription: "Реализовать метод, который добовляет новых пользователей в SignUp и метод который проверяет наличие пользователя в списке пользователей")
-
-var myTasks: [MyTask] = [task1, task2]
+class MyTasks {
+    var inProgressTasks = [MyTask]()
+    var readyTasks = [MyTask]()
+    
+    func addNewTask(task: MyTask, index: Int) {
+        if !task.status {
+            inProgressTasks.append(task)
+        } else {
+            readyTasks.append(inProgressTasks[index])
+            inProgressTasks.remove(at: index)
+        }
+    }
+    
+    func removeTask(status: Bool, index: Int) {
+        if status {
+            readyTasks.remove(at: index)
+        } else {
+            inProgressTasks.remove(at: index)
+        }
+    }
+}

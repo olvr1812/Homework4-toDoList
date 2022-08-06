@@ -14,7 +14,7 @@
 		F9417DE528893BCB0042D79D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9417DE428893BCB0042D79D /* SceneDelegate.swift */; };
 		F9417DE728893BCB0042D79D /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9417DE628893BCB0042D79D /* SignInView.swift */; };
 		F9417DEA28893BCB0042D79D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9417DE828893BCB0042D79D /* Main.storyboard */; };
-		F9417DED28893BCB0042D79D /* Homework_4___toDoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9417DEB28893BCB0042D79D /* Homework_4___toDoList.xcdatamodeld */; };
+		F9417DED28893BCB0042D79D /* Homework4toDoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9417DEB28893BCB0042D79D /* Homework4toDoList.xcdatamodeld */; };
 		F9417DEF28893BCC0042D79D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9417DEE28893BCC0042D79D /* Assets.xcassets */; };
 		F9417DF228893BCC0042D79D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9417DF028893BCC0042D79D /* LaunchScreen.storyboard */; };
 		F9417E0128899A0A0042D79D /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9417E0028899A0A0042D79D /* SignUpView.swift */; };
@@ -27,6 +27,7 @@
 		F9B36BED28905C9100497C4A /* InfoTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B36BEC28905C9100497C4A /* InfoTaskView.swift */; };
 		F9B36BEF2890629E00497C4A /* InfoTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B36BEE2890629E00497C4A /* InfoTaskVC.swift */; };
 		F9C741AF2899546800C4D003 /* TasksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C741AE2899546800C4D003 /* TasksModel.swift */; };
+		F9FEB6B2289BF4A300FCC39C /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FEB6B1289BF4A300FCC39C /* LocalStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		F9B36BEC28905C9100497C4A /* InfoTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTaskView.swift; sourceTree = "<group>"; };
 		F9B36BEE2890629E00497C4A /* InfoTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTaskVC.swift; sourceTree = "<group>"; };
 		F9C741AE2899546800C4D003 /* TasksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksModel.swift; sourceTree = "<group>"; };
+		F9FEB6B1289BF4A300FCC39C /* LocalStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
 		FC5E0AEB500FC63BA275E38A /* Pods_Homework_4___toDoList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Homework_4___toDoList.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -113,7 +115,7 @@
 				F9417DF92889956D0042D79D /* Source */,
 				F9417DEE28893BCC0042D79D /* Assets.xcassets */,
 				F9417DF328893BCC0042D79D /* Info.plist */,
-				F9417DEB28893BCB0042D79D /* Homework_4___toDoList.xcdatamodeld */,
+				F9417DEB28893BCB0042D79D /* Homework4toDoList.xcdatamodeld */,
 			);
 			path = "Homework 4 - toDoList";
 			sourceTree = "<group>";
@@ -166,6 +168,7 @@
 			children = (
 				F97DE777288DBE2900937DD9 /* UsersModel.swift */,
 				F9C741AE2899546800C4D003 /* TasksModel.swift */,
+				F9FEB6B1289BF4A300FCC39C /* LocalStore.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -288,8 +291,9 @@
 				F97DE77D288DBF2600937DD9 /* SignInVC.swift in Sources */,
 				F9B36BEF2890629E00497C4A /* InfoTaskVC.swift in Sources */,
 				F9C741AF2899546800C4D003 /* TasksModel.swift in Sources */,
-				F9417DED28893BCB0042D79D /* Homework_4___toDoList.xcdatamodeld in Sources */,
+				F9417DED28893BCB0042D79D /* Homework4toDoList.xcdatamodeld in Sources */,
 				F9417DE728893BCB0042D79D /* SignInView.swift in Sources */,
+				F9FEB6B2289BF4A300FCC39C /* LocalStore.swift in Sources */,
 				F9417DE328893BCB0042D79D /* AppDelegate.swift in Sources */,
 				F9417DE528893BCB0042D79D /* SceneDelegate.swift in Sources */,
 				F9B36BE7288FC98500497C4A /* TasksView.swift in Sources */,
@@ -461,7 +465,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "iOliver.Homework-4---toDoList";
+				PRODUCT_BUNDLE_IDENTIFIER = "iOliver.Homework4-toDoList";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -490,7 +494,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "iOliver.Homework-4---toDoList";
+				PRODUCT_BUNDLE_IDENTIFIER = "iOliver.Homework4-toDoList";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -522,13 +526,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		F9417DEB28893BCB0042D79D /* Homework_4___toDoList.xcdatamodeld */ = {
+		F9417DEB28893BCB0042D79D /* Homework4toDoList.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				F9417DEC28893BCB0042D79D /* Homework_4___toDoList.xcdatamodel */,
 			);
 			currentVersion = F9417DEC28893BCB0042D79D /* Homework_4___toDoList.xcdatamodel */;
-			path = "Homework_4___toDoList.xcdatamodeld";
+			path = Homework4toDoList.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

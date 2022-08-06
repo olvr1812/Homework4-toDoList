@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class signUpVC: UIViewController {
     
@@ -45,8 +46,15 @@ class signUpVC: UIViewController {
     }
     
     @objc private func evenSignUp(sender: UIButton) {
-        users.append(User(login: login, password: password))
-        print(users.count)
-        dismiss(animated: true)
+        let check = users.checkNewUser(newLogin: login)
+        
+        if !check {
+            print(users.users.count)
+            users.newUser(login: login, password: password)
+            dismiss(animated: true)
+        } else {
+            signUpView.addAlert(controller: self)
+        }
+        
     }
 }

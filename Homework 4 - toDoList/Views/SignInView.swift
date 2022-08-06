@@ -17,7 +17,13 @@ class SignInView: UIView {
         return image
     }()
     
-    lazy var signUpButt: UIButton = {
+    private lazy var wrongRegistration: UIAlertController = {
+       let alert = UIAlertController(title: "Ошибка при регистрации", message: "Не верный логин или пароль", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        return alert
+    }()
+    
+    private lazy var signUpButt: UIButton = {
         let button = UIButton()
         button.setTitle("Sign Up", for: .normal)
         button.backgroundColor = .clear
@@ -85,6 +91,7 @@ class SignInView: UIView {
         btn.titleLabel?.font = UIFont(name: "Times New Roman", size: 12)
         btn.titleLabel?.adjustsFontSizeToFitWidth = true
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.isEnabled = false
         return btn
     }()
     
@@ -141,8 +148,8 @@ class SignInView: UIView {
     private func setSignUp() {
         self.signUpButt.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 28).isActive = true
         self.signUpButt.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: -26).isActive = true
-        self.signUpButt.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        self.signUpButt.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        self.signUpButt.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        self.signUpButt.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
 
     private func setNameLabel() {
@@ -200,6 +207,15 @@ class SignInView: UIView {
         nameTextField.addTarget(target, action: action, for: .editingChanged)
     }
     
+    func eventForgetPassword(target: Any?, action: Selector) {
+        forgetPasswordBtn.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    func setInputAlert(title: String, message: String) {
+        wrongRegistration.title = title
+        wrongRegistration.message = message
+    }
+    
     func passwordEditingChanged(_ target: Any?, action: Selector) {
         passwordTextField.addTarget(target, action: action, for: .editingChanged)
     }
@@ -208,12 +224,24 @@ class SignInView: UIView {
         signInBtn.addTarget(target, action: action, for: .touchUpInside)
     }
     
+    func enabledForgotPassword(login: String) {
+        if login != "" {
+            forgetPasswordBtn.isEnabled = true
+        } else {
+            forgetPasswordBtn.isEnabled = false
+        }
+    }
+    
     func enabledSignInBtn(login: String, password: String) {
         if password != "" && login != "" {
             signInBtn.isEnabled = true
         } else {
             signInBtn.isEnabled = false
         }
+    }
+    
+    func presentAlert(controller: UIViewController) {
+        controller.present(wrongRegistration, animated: true, completion: nil)
     }
     
     func setViews() {

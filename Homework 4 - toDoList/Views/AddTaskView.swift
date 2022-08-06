@@ -63,7 +63,7 @@ class AddTask: UIView {
         return label
     }()
     
-    private lazy var descriptionTaskTextField: UITextView = {
+    private(set) lazy var descriptionTaskTextField: UITextView = {
         let label = UITextView()
         label.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         label.textColor = UIColor.white
@@ -83,8 +83,8 @@ class AddTask: UIView {
     private lazy var btnAddTask: UIButton = {
         let btn = UIButton()
         btn.setTitle("+", for: .normal)
-        btn.titleLabel?.font = UIFont(name: "Times New Roman", size: 25)
-        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        btn.titleLabel?.font = UIFont(name: "Times New Roman", size: 30)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
         btn.setTitleColor(.white, for: .normal)
         btn.setTitleColor(UIColor.gray, for: .disabled)
         btn.backgroundColor = .init(red: 0.07, green: 0.19, blue: 0.27, alpha: 1)
@@ -210,10 +210,6 @@ class AddTask: UIView {
         addSubview(btnAddTask)
     }
     
-    func delegateSummary(controller: UITextViewDelegate) {
-        descriptionTaskTextField.delegate = controller
-    }
-    
     func evenBackToTasks(_ target: Any?, action: Selector) {
         btnBackToTasks.addTarget(target, action: action, for: .touchUpInside)
     }
@@ -222,8 +218,8 @@ class AddTask: UIView {
         nameTaskTextField.addTarget(target, action: action, for: .editingChanged)
     }
     
-    func editSummaryTask(_ target: Any?, action: Selector) {
-        descriptionTaskTextField.refreshControl?.addTarget(target, action: action, for: .editingChanged)
+    func setSummaryOfTask() -> String? {
+        descriptionTaskTextField.text ?? ""
     }
     
     func addNewTask(_ target: Any?, action: Selector) {

@@ -26,8 +26,6 @@ class AddTaskVC: UIViewController {
         super.viewDidLoad()
         addTaskView.evenBackToTasks(self, action: #selector(backToTasks))
         addTaskView.editNameTask(self, action: #selector(newNameTask))
-        addTaskView.editSummaryTask(self, action: #selector(newSummaryTask))
-        addTaskView.delegateSummary(controller: self)
         addTaskView.addNewTask(self, action: #selector(addNewTask))
     }
     
@@ -36,23 +34,13 @@ class AddTaskVC: UIViewController {
     }
     
     @objc private func newNameTask(sender: UITextField) {
-        nameTask = sender.text!
+        nameTask = " " + sender.text!
     }
-    
-    @objc private func newSummaryTask(sender: UITextView) {
-        summaryTask = sender.text!
-    }
-    
     
     @objc private func addNewTask(sender: UIButton) {
-        myTasks.append(MyTask(name: nameTask, discription: summaryTask))
+        summaryTask = addTaskView.setSummaryOfTask()!
+        userTasks.addNewTask(task: MyTask(name: nameTask, summary: summaryTask), index: 0)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         dismiss(animated: true)
-    }
-}
-
-extension AddTaskVC: UITextViewDelegate {
-    func textViewDidEndEditing(_ textView: UITextView) {
-        summaryTask = textView.text!
     }
 }

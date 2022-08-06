@@ -17,6 +17,12 @@ class SignUpView: UIView {
         return image
     }()
     
+    private lazy var wrongUserName: UIAlertController = {
+        let alert = UIAlertController(title: "Не верный логин", message: "Пользователь с таким именем уже существует", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        return alert
+    }()
+    
     private lazy var btnToSignIn: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "arrow"), for: .normal)
@@ -124,8 +130,8 @@ class SignUpView: UIView {
     private func setBtnToSignIn() {
         self.btnToSignIn.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 21).isActive = true
         self.btnToSignIn.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 22).isActive = true
-        self.btnToSignIn.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        self.btnToSignIn.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        self.btnToSignIn.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        self.btnToSignIn.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
 
     private func setNameLabel() {
@@ -190,6 +196,10 @@ class SignUpView: UIView {
         } else {
             signIUpBtn.isEnabled = false
         }
+    }
+    
+    func addAlert(controller: UIViewController) {
+        controller.present(wrongUserName, animated: true, completion: nil)
     }
     
     func setViews() {

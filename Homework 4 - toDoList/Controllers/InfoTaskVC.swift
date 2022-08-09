@@ -26,9 +26,9 @@ class InfoTaskVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        infoTaskView.evenBackToTasks(self, action: #selector(backToTasks))
-        infoTaskView.evenDeleteTask(self, action: #selector(deleteTask))
-        infoTaskView.setInfoInTask(name: nameOfTaks, description: descriptionOfTask)
+        infoTaskView.btnBackToTasks.addTarget(self, action: #selector(backToTasks), for: .touchUpInside)
+        infoTaskView.deleteTask.addTarget(self, action: #selector(deleteTask), for: .touchUpInside)
+        setInfoInTask(name: nameOfTaks, description: descriptionOfTask)
     }
     
     func getInfo(name: String, summary: String, index: Int, status: Bool) {
@@ -38,12 +38,17 @@ class InfoTaskVC: UIViewController {
         statusOfTask = status
     }
     
+    private func setInfoInTask(name: String, description: String) {
+       infoTaskView.nameTask.text = name
+       infoTaskView.summaryTask.text = description
+    }
+    
     @objc private func backToTasks(sander: UIButton) {
         dismiss(animated: true)
     }
     
     @objc private func deleteTask(sender: UIButton) {
-        userTasks.removeTask(status: statusOfTask, index: indexOfTask)
+        userTasksTest.removeTask(index: indexOfTask, status: statusOfTask)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         dismiss(animated: true)
     }

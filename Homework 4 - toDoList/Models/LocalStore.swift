@@ -12,7 +12,5 @@ import CoreData
 var users = Users()
 var userTasks = MyTasks()
 
-
-    
-
+var userTasksTest = UserTasks()
 

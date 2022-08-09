@@ -4,7 +4,14 @@
         <attribute name="login" optional="YES" attributeType="String"/>
         <attribute name="password" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="UserTask" representedClassName="UserTask" syncable="YES" codeGenerationType="class">
+        <attribute name="deadline" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="UsersCoreData" positionX="-63" positionY="-18" width="128" height="59"/>
+        <element name="UserTask" positionX="-63" positionY="9" width="128" height="89"/>
     </elements>
 </model>

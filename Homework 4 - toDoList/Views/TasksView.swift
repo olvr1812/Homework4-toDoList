@@ -18,7 +18,7 @@ class TasksView: UIView {
         return image
     }()
     
-    private lazy var btnLogOut: UIButton = {
+    private(set) lazy var btnLogOut: UIButton = {
         let btn = UIButton()
         btn.setTitle("Log Out", for: .normal)
         btn.backgroundColor = .clear
@@ -29,7 +29,7 @@ class TasksView: UIView {
         return btn
     }()
     
-    private lazy var tableViewTasks: UITableView = {
+    private(set) lazy var tableViewTasks: UITableView = {
         let tabView = UITableView()
         tabView.backgroundColor = .clear
         tabView.clipsToBounds = true
@@ -40,9 +40,9 @@ class TasksView: UIView {
         return tabView
     }()
     
-    private lazy var items = ["Ready", "In progress"]
+    private lazy var items = ["In progress", "Ready"]
     
-    private lazy var typeOfTasks: UISegmentedControl = {
+    private(set) lazy var typeOfTasks: UISegmentedControl = {
         let segment = UISegmentedControl(items: items)
         segment.backgroundColor = UIColor.gray
         segment.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
@@ -51,7 +51,7 @@ class TasksView: UIView {
         return segment
     }()
     
-    private lazy var btnAddTask: UIButton = {
+    private(set) lazy var btnAddTask: UIButton = {
         let btn = UIButton()
         btn.setTitle("ADD TASK", for: .normal)
         btn.titleLabel?.font = UIFont(name: "Times New Roman", size: 15)
@@ -129,40 +129,12 @@ class TasksView: UIView {
         })
     }
     
-    func addDataSource(controller: UITableViewDataSource) {
-        tableViewTasks.dataSource = controller
-    }
-    
-    func addDelegate(controller: UITableViewDelegate) {
-        tableViewTasks.delegate = controller
-    }
-    
-    func realoadDataTasks() {
-        tableViewTasks.reloadData()
-    }
-    
     func setViews() {
         self.addSubview(self.backgroundImage)
         self.addSubview(self.btnLogOut)
         self.addSubview(self.tableViewTasks)
         self.addSubview(self.btnAddTask)
         self.addSubview(self.typeOfTasks)
-    }
-    
-    func eventLogOut(target: Any?, action:Selector) {
-        btnLogOut.addTarget(target, action: action, for: .touchUpInside)
-    }
-    
-    func changedTypeOfTask() -> Int {
-        typeOfTasks.selectedSegmentIndex
-    }
-    
-    func tapTypeOfTask(target: Any?, action: Selector) {
-        typeOfTasks.addTarget(target, action: action, for: .valueChanged)
-    }
-    
-    func evenBtnAddTask(_ target: Any?, action: Selector) {
-        btnAddTask.addTarget(target, action: action, for: .touchUpInside)
     }
 }
 

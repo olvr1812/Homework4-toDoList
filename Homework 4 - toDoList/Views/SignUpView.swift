@@ -17,13 +17,13 @@ class SignUpView: UIView {
         return image
     }()
     
-    private lazy var wrongUserName: UIAlertController = {
+    private(set) lazy var wrongUserName: UIAlertController = {
         let alert = UIAlertController(title: "Не верный логин", message: "Пользователь с таким именем уже существует", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
         return alert
     }()
     
-    private lazy var btnToSignIn: UIButton = {
+    private(set) lazy var btnToSignIn: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "arrow"), for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -41,7 +41,7 @@ class SignUpView: UIView {
         return label
     }()
 
-    private lazy var nameTextField: UITextField = {
+    private(set) lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .clear
         textField.font = UIFont(name: "Times New Roman", size: 16)
@@ -65,7 +65,7 @@ class SignUpView: UIView {
         return label
     }()
 
-    private lazy var passwordTextField: UITextField = {
+    private(set) lazy var passwordTextField: UITextField = {
         let textField = UITextField()
         textField.font = UIFont(name: "Times New Roman", size: 16)
         textField.backgroundColor = .clear
@@ -79,7 +79,7 @@ class SignUpView: UIView {
         return textField
     }()
     
-    private lazy var signIUpBtn: UIButton = {
+    private(set) lazy var signIUpBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("Sign Up", for: .normal)
         btn.setTitleColor(.white, for: .normal)
@@ -172,34 +172,6 @@ class SignUpView: UIView {
     private func setBackgroundImage() {
         self.backgorundImage.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         self.backgorundImage.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-    }
-    
-    func evenToSignIn(_ target: Any?, action: Selector) {
-        btnToSignIn.addTarget(target, action: action, for: .touchUpInside)
-    }
-    
-    func nameEditingChange(_ target: Any?, action: Selector) {
-        nameTextField.addTarget(target, action: action, for: .editingChanged)
-    }
-    
-    func passwordEditingChanged(_ target: Any?, action: Selector) {
-        passwordTextField.addTarget(target, action: action, for: .editingChanged)
-    }
-    
-    func evenSignUp(_ target: Any?, action: Selector) {
-        signIUpBtn.addTarget(target, action: action, for: .touchUpInside)
-    }
-    
-    func enabledSignInBtn(login: String, password: String) {
-        if password != "" && login != "" {
-            signIUpBtn.isEnabled = true
-        } else {
-            signIUpBtn.isEnabled = false
-        }
-    }
-    
-    func addAlert(controller: UIViewController) {
-        controller.present(wrongUserName, animated: true, completion: nil)
     }
     
     func setViews() {

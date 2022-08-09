@@ -25,27 +25,27 @@ class signUpVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        signUpView.evenToSignIn(self, action: #selector(evenToSignIn))
-        signUpView.nameEditingChange(self, action: #selector(validateName))
-        signUpView.passwordEditingChanged(self, action: #selector(validatePass))
-        signUpView.evenSignUp(self, action: #selector(evenSignUp))
+        signUpView.btnToSignIn.addTarget(self, action: #selector(eventToSignIn), for: .touchUpInside)
+        signUpView.nameTextField.addTarget(self, action: #selector(validateName), for: .editingChanged)
+        signUpView.passwordTextField.addTarget(self, action: #selector(validatePass), for: .editingChanged)
+        signUpView.signIUpBtn.addTarget(self, action: #selector(eventSignUp), for: .touchUpInside)
     }
     
-    @objc private func evenToSignIn(sender: UIButton) {
+    @objc private func eventToSignIn(sender: UIButton) {
         dismiss(animated: true)
     }
     
     @objc private func validateName(sender: UITextField) {
         login = sender.text!
-        signUpView.enabledSignInBtn(login: login, password: password)
+        signUpView.signIUpBtn.isEnabled = login != "" && password != ""
     }
     
     @objc private func validatePass(sender: UITextField) {
         password = sender.text!
-        signUpView.enabledSignInBtn(login: login, password: password)
+        signUpView.signIUpBtn.isEnabled = login != "" && password != ""
     }
     
-    @objc private func evenSignUp(sender: UIButton) {
+    @objc private func eventSignUp(sender: UIButton) {
         let check = users.checkNewUser(newLogin: login)
         
         if !check {
@@ -53,7 +53,7 @@ class signUpVC: UIViewController {
             users.newUser(login: login, password: password)
             dismiss(animated: true)
         } else {
-            signUpView.addAlert(controller: self)
+            self.present(signUpView.wrongUserName, animated: true)
         }
         
     }

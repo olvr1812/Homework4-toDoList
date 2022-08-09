@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 import CoreData
 
-struct User {
-    var login: String
-    var password: String
-}
+//struct User {
+//    var login: String
+//    var password: String
+//}
 
 class Users {
     
@@ -21,6 +21,10 @@ class Users {
     func setContext() -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
+    }
+    
+    func changeStatus(index: Int) {
+//        let contex = setContext()
     }
     
     func newUser(login: String, password: String) {
@@ -48,7 +52,7 @@ class Users {
             print(error.localizedDescription)
         }
         print(users.count)
-        users.map { print("login: \($0.login), password: \(String(describing: $0.password))") }
+        users.map { print("login: \(String(describing: $0.login)), password: \(String(describing: $0.password))") }
     }
     
     func checkNewUser(newLogin: String) -> Bool {

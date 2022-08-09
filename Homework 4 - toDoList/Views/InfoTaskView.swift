@@ -17,15 +17,14 @@ class InfoTaskView: UIView {
         return image
     }()
     
-    private lazy var btnBackToTasks: UIButton = {
+    private(set) lazy var btnBackToTasks: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "rightArrow"), for: .normal)
         return btn
     }()
     
-    private lazy var nameTask: UILabel = {
+    private(set) lazy var nameTask: UILabel = {
         let label = UILabel()
-        label.text = " Бегит 5 киломкеторв"
         label.font = UIFont(name: "Times New Roman", size: 17)
         label.textColor = UIColor.white
         label.adjustsFontSizeToFitWidth = true
@@ -36,7 +35,7 @@ class InfoTaskView: UIView {
         return label
     }()
     
-    private lazy var deleteTask: UIButton = {
+    private(set) lazy var deleteTask: UIButton = {
         let btn = UIButton()
         btn.backgroundColor = .red
         btn.clipsToBounds = true
@@ -45,19 +44,19 @@ class InfoTaskView: UIView {
         return btn
     }()
     
-    private lazy var summaryTask: UITextView = {
+    private(set) lazy var summaryTask: UITextView = {
         let label = UITextView()
         label.textColor = UIColor.white
         label.backgroundColor = .clear
-        label.isScrollEnabled = false
-        label.text = ""
         label.font = UIFont(name: "Times New Roman", size: 17)
         label.textAlignment = .justified
         label.clipsToBounds = true
         label.layer.cornerRadius = 5
         label.layer.borderWidth = 1
         label.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
-        label.isUserInteractionEnabled = false
+        label.isEditable = false
+        label.isScrollEnabled = true
+        label.showsVerticalScrollIndicator = true
         return label
     }()
     
@@ -123,11 +122,6 @@ class InfoTaskView: UIView {
             maker.bottom.equalToSuperview().inset(95)
             
         })
-    }
-    
-    func setInfoInTask(name: String, description: String) {
-        nameTask.text = name
-        summaryTask.text = description
     }
     
     func setViews() {

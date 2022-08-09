@@ -17,13 +17,13 @@ class SignInView: UIView {
         return image
     }()
     
-    private lazy var wrongRegistration: UIAlertController = {
+    private(set) lazy var wrongRegistration: UIAlertController = {
        let alert = UIAlertController(title: "Ошибка при регистрации", message: "Не верный логин или пароль", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
         return alert
     }()
     
-    private lazy var signUpButt: UIButton = {
+    private(set) lazy var signUpButt: UIButton = {
         let button = UIButton()
         button.setTitle("Sign Up", for: .normal)
         button.backgroundColor = .clear
@@ -46,7 +46,7 @@ class SignInView: UIView {
         return label
     }()
     
-    private lazy var nameTextField: UITextField = {
+    private(set) lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .clear
         textField.font = UIFont(name: "Times New Roman", size: 16)
@@ -70,7 +70,7 @@ class SignInView: UIView {
         return label
     }()
     
-    private lazy var passwordTextField: UITextField = {
+    private(set) lazy var passwordTextField: UITextField = {
         let textField = UITextField()
         textField.isSecureTextEntry = true
         textField.font = UIFont(name: "Times New Roman", size: 16)
@@ -84,7 +84,7 @@ class SignInView: UIView {
         return textField
     }()
     
-    private var forgetPasswordBtn: UIButton = {
+    private(set) var forgetPasswordBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("Forget password", for: .normal)
         btn.setTitleColor(UIColor(red: 0.33, green: 0.55, blue: 0.83, alpha: 1), for: .normal)
@@ -95,7 +95,7 @@ class SignInView: UIView {
         return btn
     }()
     
-    private var signInBtn: UIButton = {
+    private(set) var signInBtn: UIButton = {
         let btn = UIButton(type: .system)
         btn.setTitle("Sign In", for: .normal)
         btn.setTitleColor(.white, for: .normal)
@@ -197,51 +197,6 @@ class SignInView: UIView {
     private func setImageBackground() {
         self.backImage.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         self.backImage.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
-    }
-
-    func evenToSignUp(_ target: Any?, action: Selector) {
-        signUpButt.addTarget(target, action: action, for: .touchUpInside)
-    }
-    
-    func nameEditingChange(_ target: Any?, action: Selector) {
-        nameTextField.addTarget(target, action: action, for: .editingChanged)
-    }
-    
-    func eventForgetPassword(target: Any?, action: Selector) {
-        forgetPasswordBtn.addTarget(target, action: action, for: .touchUpInside)
-    }
-    
-    func setInputAlert(title: String, message: String) {
-        wrongRegistration.title = title
-        wrongRegistration.message = message
-    }
-    
-    func passwordEditingChanged(_ target: Any?, action: Selector) {
-        passwordTextField.addTarget(target, action: action, for: .editingChanged)
-    }
-    
-    func evenSignInBtn(_ target: Any?, action: Selector) {
-        signInBtn.addTarget(target, action: action, for: .touchUpInside)
-    }
-    
-    func enabledForgotPassword(login: String) {
-        if login != "" {
-            forgetPasswordBtn.isEnabled = true
-        } else {
-            forgetPasswordBtn.isEnabled = false
-        }
-    }
-    
-    func enabledSignInBtn(login: String, password: String) {
-        if password != "" && login != "" {
-            signInBtn.isEnabled = true
-        } else {
-            signInBtn.isEnabled = false
-        }
-    }
-    
-    func presentAlert(controller: UIViewController) {
-        controller.present(wrongRegistration, animated: true, completion: nil)
     }
     
     func setViews() {

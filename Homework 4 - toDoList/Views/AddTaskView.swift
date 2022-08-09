@@ -16,26 +16,26 @@ class AddTask: UIView {
         return image
     }()
     
-    private lazy var btnBackToTasks: UIButton = {
+    private(set) lazy var btnBackToTasks: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "arrow"), for: .normal)
         return btn
     }()
     
-    private lazy var deadlineOfTask: UIButton = {
+    private(set) lazy var deadlineOfTask: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "clock"), for: .normal)
         return btn
     }()
     
-    private lazy var setDeadline: UIDatePicker = {
+    private(set) lazy var setDeadline: UIDatePicker = {
         let dataPicker = UIDatePicker()
         dataPicker.isHidden = true
         dataPicker.tintColor = .white
         return dataPicker
     }()
     
-    private lazy var nameTaskLabel: UILabel = {
+    private(set) lazy var nameTaskLabel: UILabel = {
         let label = UILabel()
         label.text = "Title"
         label.backgroundColor = .clear
@@ -46,7 +46,7 @@ class AddTask: UIView {
         return label
     }()
     
-    private lazy var nameTaskTextField: UITextField = {
+    private(set) lazy var nameTaskTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .clear
         textField.font = UIFont(name: "Times New Roman", size: 17)
@@ -59,7 +59,7 @@ class AddTask: UIView {
         return textField
     }()
     
-    private lazy var descriptionTaskLabel: UILabel = {
+    private(set) lazy var descriptionTaskLabel: UILabel = {
         let label = UILabel()
         label.text = "Description"
         label.backgroundColor = .clear
@@ -84,10 +84,12 @@ class AddTask: UIView {
         label.layer.borderWidth = 1
         label.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
         label.allowsEditingTextAttributes = true
+        label.isScrollEnabled = true
+        label.showsVerticalScrollIndicator = true
         return label
     }()
     
-    private lazy var btnAddTask: UIButton = {
+    private(set) lazy var btnAddTask: UIButton = {
         let btn = UIButton()
         btn.setTitle("+", for: .normal)
         btn.titleLabel?.font = UIFont(name: "Times New Roman", size: 30)
@@ -227,35 +229,5 @@ class AddTask: UIView {
         addSubview(descriptionTaskLabel)
         addSubview(descriptionTaskTextField)
         addSubview(btnAddTask)
-    }
-    
-    func evenBackToTasks(_ target: Any?, action: Selector) {
-        btnBackToTasks.addTarget(target, action: action, for: .touchUpInside)
-    }
-    
-    func eventDeadlineForTask(_ target: Any?, action: Selector) {
-        deadlineOfTask.addTarget(target, action: action, for: .touchUpInside)
-    }
-    
-    func openSetDeadline() {
-        if setDeadline.isHidden {
-            setDeadline.isHidden = false
-        } else {
-            setDeadline.isHidden = true
-            print(setDeadline.date)
-        }
-        
-    }
-    
-    func editNameTask(_ target: Any?, action: Selector) {
-        nameTaskTextField.addTarget(target, action: action, for: .editingChanged)
-    }
-    
-    func setSummaryOfTask() -> String? {
-        descriptionTaskTextField.text ?? ""
-    }
-    
-    func addNewTask(_ target: Any?, action: Selector) {
-        btnAddTask.addTarget(target, action: action, for: .touchUpInside)
     }
 }

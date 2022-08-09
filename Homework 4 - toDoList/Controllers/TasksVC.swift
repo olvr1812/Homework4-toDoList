@@ -21,13 +21,18 @@ class TasksVC: UIViewController {
         self.view.backgroundColor = .white
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tasksView.addDataSource(controller: self)
-        tasksView.addDelegate(controller: self)
-        tasksView.evenBtnAddTask(self, action: #selector(toAddTask))
-        tasksView.tapTypeOfTask(target: self, action: #selector(loadList))
-        tasksView.eventLogOut(target: self, action: #selector(logOut))
+        tasksView.tableViewTasks.dataSource = self
+        tasksView.tableViewTasks.delegate = self
+        tasksView.btnAddTask.addTarget(self, action: #selector(toAddTask), for: .touchUpInside)
+        tasksView.typeOfTasks.addTarget(self, action: #selector(loadList), for: .valueChanged)
+        tasksView.btnLogOut.addTarget(self, action: #selector(logOut), for: .touchUpInside)
+        userTasksTest.fetchTasks()
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
     }
@@ -39,7 +44,7 @@ class TasksVC: UIViewController {
     }
     
     @objc func loadList(notification: NSNotification){
-        tasksView.realoadDataTasks()
+        tasksView.tableViewTasks.reloadData()
     }
     
     @objc func logOut(sender: UIButton) {
@@ -57,12 +62,12 @@ extension TasksVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let typeOfTAsk = tasksView.changedTypeOfTask()
+        let typeOfTAsk = tasksView.typeOfTasks.selectedSegmentIndex
         switch typeOfTAsk {
         case 0:
-            return userTasks.readyTasks.count
+            return userTasksTest.inProgressTasks.count
         case 1:
-            return userTasks.inProgressTasks.count
+            return userTasksTest.readyTasks.count
         default:
             return 0
         }
@@ -73,54 +78,59 @@ extension TasksVC: UITableViewDataSource {
         cell.backgroundColor = .clear
         cell.clipsToBounds = true
         cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 10
         cell.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
-        //custom cell
         
-        let typeOfTask = tasksView.changedTypeOfTask()
+        let typeOfTask = tasksView.typeOfTasks.selectedSegmentIndex
         switch typeOfTask {
         case 0:
-            cell.setLabel(taskName: userTasks.readyTasks[indexPath.row].name)
+            cell.setLabel(taskName: userTasksTest.inProgressTasks[indexPath.row].name!, deadLineOfTask: userTasksTest.inProgressTasks[indexPath.row].deadline!)
         case 1:
-            cell.setLabel(taskName: userTasks.inProgressTasks[indexPath.row].name)
+            cell.setLabel(taskName: userTasksTest.readyTasks[indexPath.row].name!, deadLineOfTask: userTasksTest.readyTasks[indexPath.row].deadline!)
         default:
-            cell.setLabel(taskName: "")
+            cell.setLabel(taskName: "", deadLineOfTask: "")
         }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let done = taskDone(at: indexPath)
-        return UISwipeActionsConfiguration(actions: [done])
+        let typeOfTAsk = tasksView.typeOfTasks.selectedSegmentIndex
+        
+        switch typeOfTAsk {
+        case 0:
+            let done = taskDone(at: indexPath)
+            return UISwipeActionsConfiguration(actions: [done])
+        default:
+            return UISwipeActionsConfiguration()
+        }
     }
     
     func taskDone(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "done", handler: { (action, view, complition) in
-            userTasks.inProgressTasks[indexPath.row].status = true
-            userTasks.addNewTask(task: userTasks.inProgressTasks[indexPath.row], index: indexPath.row)
-            self.tasksView.realoadDataTasks()
+            userTasksTest.doneTask(index: indexPath.row)
+            self.tasksView.tableViewTasks.reloadData()
         })
         action.backgroundColor = UIColor(red: 96/255, green: 197/255, blue: 84/255, alpha: 1)
         return action
     }
-    
 }
 
 extension TasksVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let typeOfTAsk = tasksView.changedTypeOfTask()
+        let typeOfTAsk = tasksView.typeOfTasks.selectedSegmentIndex
         var name = String()
         var summary = String()
         var status = Bool()
         switch typeOfTAsk {
         case 0:
-            name = userTasks.readyTasks[indexPath.row].name
-            summary = userTasks.readyTasks[indexPath.row].summary
-            status = userTasks.readyTasks[indexPath.row].status
+            name = userTasksTest.inProgressTasks[indexPath.row].name!
+            summary = userTasksTest.inProgressTasks[indexPath.row].summary!
+            status = userTasksTest.inProgressTasks[indexPath.row].status
         case 1:
-            name = userTasks.inProgressTasks[indexPath.row].name
-            summary = userTasks.inProgressTasks[indexPath.row].summary
-            status = userTasks.inProgressTasks[indexPath.row].status
+            name = userTasksTest.readyTasks[indexPath.row].name!
+            summary = userTasksTest.readyTasks[indexPath.row].summary!
+            status = userTasksTest.readyTasks[indexPath.row].status
         default:
             return
         }
@@ -133,6 +143,6 @@ extension TasksVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        60
     }
 }

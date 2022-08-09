@@ -30,13 +30,11 @@ class SignInVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        signInView.evenToSignUp(self, action: #selector(btnSignUpAction))
-        signInView.nameEditingChange(self, action: #selector(validateName))
-        signInView.passwordEditingChanged(self, action: #selector(validatePass))
-        signInView.evenSignInBtn(self, action: #selector(btnSignInAction))
-        signInView.eventForgetPassword(target: self, action: #selector(forgetPasswordAction))
-        
-        
+        signInView.signUpButt.addTarget(self, action: #selector(btnSignUpAction), for: .touchUpInside)
+        signInView.nameTextField.addTarget(self, action: #selector(validateName), for: .editingChanged)
+        signInView.passwordTextField.addTarget(self, action: #selector(validatePass), for: .editingChanged)
+        signInView.signInBtn.addTarget(self, action: #selector(btnSignInAction), for: .touchUpInside)
+        signInView.forgetPasswordBtn.addTarget(self, action: #selector(forgetPasswordAction), for: .touchUpInside)
         
 //        let context = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
 //        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "UsersCoreData")
@@ -56,19 +54,20 @@ class SignInVC: UIViewController {
     
     @objc private func validateName(sender: UITextField) {
         login = sender.text!
-        signInView.enabledForgotPassword(login: login)
-        signInView.enabledSignInBtn(login: login, password: password)
+        signInView.forgetPasswordBtn.isEnabled = login != ""
+        signInView.signInBtn.isEnabled = login != "" && password != ""
     }
     
     @objc private func forgetPasswordAction(sender: UIButton) {
         let checkLogin = users.forgetPassword(login: login)
-        signInView.setInputAlert(title: "Подсказка", message: checkLogin)
-        signInView.presentAlert(controller: self)
+        signInView.wrongRegistration.title = "Подсказка"
+        signInView.wrongRegistration.message = checkLogin
+        self.present(signInView.wrongRegistration, animated: true)
     }
     
     @objc private func validatePass(sender: UITextField) {
         password = sender.text!
-        signInView.enabledSignInBtn(login: login, password: password)
+        signInView.signInBtn.isEnabled = login != "" && password != ""
     }
     
     @objc private func btnSignUpAction(sender: UIButton) {
@@ -85,8 +84,9 @@ class SignInVC: UIViewController {
             rootVC.modalPresentationStyle = .fullScreen
             self.present(rootVC, animated: true)
         } else {
-            signInView.setInputAlert(title: "Ошибка при регистрации", message: "Не верный логин или пароль")
-            self.signInView.presentAlert(controller: self)
+            signInView.wrongRegistration.title = "Ошибка при регистрации"
+            signInView.wrongRegistration.message = "Не верный логин или пароль"
+            self.present(signInView.wrongRegistration, animated: true)
         }
         
 //        NetworkService.shared.signInTest(checkUser: checkUser, completion: { success in
